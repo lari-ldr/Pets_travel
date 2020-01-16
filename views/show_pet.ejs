@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+                <main class="o-main">
+                <section class="main-container">
+                <% include ./partials/flashMessages %>
+                    <h1 class="user-title"> Yours Pets </h1>
+                    <div class="results">
+                    <% pets.forEach(function(pets){ %>
+                        <div class="result-card">
+                        <div class="result-info">
+                        <ul>
+                                <li>Nick: <%= pets.petName %> </li>
+                                <li>Birth: <%= pets.birth %> </li>
+                                <li>Dog: <%= pets.dog %> </li>
+                                <li>Cat: <%= pets.cat %> </li>
+                                <li>Breed: <%= pets.breed %> </li>
+                                <li>Description: <%= pets.description %> </li>
+                        </ul>
+                        <div class="pet-btn"> 
+                                <a class="edit" href="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>/edit">
+                                    Edit
+                                </a>
+                            
+                            <form action="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>?_method=DELETE" method="POST">
+                                <label for="delete">
+                                    <input class="delete" id="delete" type="submit" value="Delete">
+                                </label>
+                            </form>
+                            </div>
+        
+                        </div>
+                        </div>
+                    <% }); %>
+                    </div>
+                    </section>
+                </main>
+                <% include ./partials/footer %>

@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+
+<main class="o-main">
+    <section class="main-container">
+    <% include ./partials/flashMessages %>
+        <h1 class="user-title"><%= currentUser.username %>, add a new pet: </h1>
+        <div class="user-container">
+            <form class="user-form" action="/user/<%= currentUser._id %>/add_pet" method="POST">
+                
+                    <label for="pets_name">Pet's Name</label>
+                    <input class="input" id="pets_name" type="text" name="pet[petName]" placeholder="your pet's name">
+
+                    <label for="age">Age</label>
+                    <input class="input" id="age" type="date" name="pet[birth]" placeholder="">
+                
+               <div class="animal-radio">
+                    <label for="cat">Cat</label>
+                    <input id="cat" type="radio" name="pet[cat]" value="true" placeholder="cat">
+
+                    <label for="dog">Dog</label>
+                    <input id="dog" type="radio" name="pet[dog]" value="true" placeholder="dog">
+                </div>
+
+                    <label for="breed">Breed</label>
+                    <input class="input" id="breed" type="text" name="pet[breed]" placeholder="breed">
+                
+                    <label for="description">Description</label>
+                    <input maxlength="800" id="description" class="textarea" type="text" name="pet[description]" placeholder="insert any details that you want">
+
+                    <button>Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<% include ./partials/footer %>

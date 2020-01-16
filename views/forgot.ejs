@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pets Travel</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
+    </head>
+    <body>
+        
+       <main class="o-main">
+        <section class="container">
+        <% include ./partials/flashMessages %>
+                <div class="mainForms">
+                    <form action="/forgot" method="POST">
+                            <h1>Forgot</h1>
+                            
+                            <label for="email">Email</label>
+                            <input id="email" class="input" type="email" name="email"placeholder="email">
+                            
+                            <button type="submit">Enter</button>
+                            <a href="/">Go Back!</a>
+                        </form>
+                    </div>
+                </section>
+               </main>
+        </body>
+        </html>

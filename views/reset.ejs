@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pets Travel</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
+    </head>
+    <body>
+        
+       <main class="o-main">
+        <section class="container">
+        <% include ./partials/flashMessages %>
+                <div class="mainForms">
+                    <form action="/reset/<%= token %>" method="POST">
+                            <h1>New password</h1>
+
+                            <label for="new_password">New password</label>
+                            <input id="new_password" class="input" type="password" name="password" placeholder="new password">
+
+                            <label for="confirm_password">Confirm password</label>
+                            <input id="confirm_password" class="input" type="password" name="confirm" placeholder="confirm new password">
+                            
+                            <button type="submit">Enter</button>
+                        </form>
+                    </div>
+                </section>
+               </main>
+        </body>
+        </html>

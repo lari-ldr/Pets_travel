@@ -1,0 +1,39 @@
+<header class="o-header">
+
+    <article class="container">
+        <nav>
+            <h1>
+                <a class="nav-text" href="/">Pets_Travel</a>
+            </h1>
+
+            <!-- SEARCH FORM!! -->
+            <form class="formSearch" action="/search" method="GET">
+                    <label for="make_search">
+                        <input id="make_search" class="input" type="text" placeholder="Search" name="search">
+                    </label>
+            
+            <!-- <button>Submit</button> -->
+            </form>
+            
+            <!-- CURRENT USER -->
+            <div>                            
+                <% if(!currentUser){ %>
+                <p class="currentUser"><a class="nav-text" href="/login">Login</a></p>
+               <p class="currentUser"><a class="nav-text" href="/register">Sign Up</a></p>
+               <% } else { %>
+                <div class="currentUser dropdown">
+                    <p class="currentUser"><a class="user-menu nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
+                    <div class="dropdown-content">
+                        <a href="/user/<%= currentUser._id %>/info">User dados</a>
+                        <a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a>
+                        <a href="/user/<%= currentUser._id %>/show_pet">View your pets</a>
+                        <a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a>
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+               <% }; %>
+            </div>
+        </nav>
+    </article>
+
+</header>

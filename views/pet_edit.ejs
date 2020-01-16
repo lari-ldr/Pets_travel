@@ -1,0 +1,36 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+
+<main class="o-main">
+    <section class="main-container">
+    <% include ./partials/flashMessages %>
+        <h1 class="user-title">Edit pet's informations:</h1>
+        <div class="user-container">
+            <form class="user-form" action="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>?_method=PUT" method="POST">
+                <label for="pets_name">Pet's Name</label>
+                <input id="pets_name" class="input" type="text" name="pets[petName]" placeholder="your pet's name" value="<%= pets.petName %>">
+                
+                <label for="age">Age</label>
+                <input id="age" class="input" type="date" name="pets[birth]" placeholder="" value="<%= pets.age %>">
+
+                <div class="animal-radio">
+                    <label for="cat">Cat</label>
+                    <input id="cat" type="radio" name="pet[cat]" value="<%= pets.cat %>" placeholder="cat">
+            
+                    <label for="dog">Dog</label>
+                    <input id="dog" type="radio" name="pet[dog]" value="<%= pets.dog %>" placeholder="dog">
+                </div>
+
+                <label for="breed">Breed</label>
+                <input id="breed" class="input" type="text" name="pets[breed]" placeholder="breed" value="<%= pets.breed %>">
+
+                <label for="description">Description</label>
+                <input id="description" class="textarea" type="text" name="pets[description]" placeholder="insert any details that you want" value="<%= pets.description %>">
+
+                <button>Submit!!!</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<% include ./partials/footer %>

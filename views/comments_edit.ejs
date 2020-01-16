@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+
+<main class="o-main">
+                <section class="main-container">
+                <% include ./partials/flashMessages %>
+                        <h1 class="user-title">Edit your review </h1>
+                        <div class="user-container">
+                <form class="user-form" action="/search/<%= hotel_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                        <label for="title_comment">Title's comment</label>
+                        <input class="input" id="title_comment" type="text" value="<%= comment.title %>" name="comment[title]">
+                        
+                        <label for="content">Content</label>
+                        <input class="input" id="content" type="text" value="<%= comment.content %>" name="comment[content]">
+                        
+                        <label for="score">Score</label>
+                        <input class="input" id="score" type="number" value="<%= comment.score %>" name="comment[score]" max="10.00" min="0.01" step="0.01"></input>
+                        
+                        <p>By: <%= currentUser.username %></p>
+                        <button>Submit comment!!!</button>
+                        <a href="/search/<%= hotel_id %>">Go Back!</a>
+                </form>
+                </div>
+        </section>
+</main>
+
+<% include ./partials/footer %>

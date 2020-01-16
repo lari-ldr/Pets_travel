@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+
+        <% include ./partials/bodyHeader %>
+
+       <main class="o-main">
+           
+<!-- PAGINATION TOP -->
+           
+<% include ./partials/pagination %>
+<section class="main-container">
+<% include ./partials/flashMessages %>
+<div class="results">
+<!-- SEARCH RESULTS -->
+        <% if(results){ %>
+        <%  if(list.length > 0){ %>
+        <!-- <b>Resultados da pesquisa por:</b> -->
+        <% list.forEach(function(hotel){ %>
+        <div class="result-card">
+            <div class="result-image">
+                <% for(var i = 4; i < hotel.image.length; i++){ %>
+                <img src="<%= hotel.image[i] %>" alt="...">
+                <% }; %>
+            </div>
+            <div class="result-info">
+                <div class="info-top">
+                    <p><%= hotel.title %></p>
+                    <p> <%= hotel.stars %>/stars</p>
+                </div>
+                    <p class="info-local"><%= hotel.street %>, <%= hotel.city %> - <%= hotel.state %>, <%= hotel.country %></p>  
+                    <p class="info-des"><%= hotel.description.substring(0,100) %>...</p>
+                <div class="info-bottom">
+                    <p>$<%= hotel.price %>/night </p>
+                    <a href="/search/<%= hotel._id %>" method="GET">See more Infos!</a>
+                </div>
+            </div>
+        </div>
+                <% }); %>
+            <%  } %>
+        <% } %>
+
+    </div>
+</section>
+        
+ <!-- PAGINATION BOTTON -->
+
+<% include ./partials/pagination %>
+
+       </main>
+       <% include ./partials/footer %>

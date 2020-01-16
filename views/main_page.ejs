@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pets Travel</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/stylesheet/landing.css">
+    </head>
+    <body>
+<!-- body header goes here -->
+<header class="o-header">
+
+              <article class="container">
+                  <nav>
+
+                      <!-- CURRENT USER -->
+                      <div>                            
+                          <% if(!currentUser){ %>
+                          <p class="currentUser"><a class="nav-text" href="/login">Login</a></p>
+                         <p class="currentUser"><a class="nav-text" href="/register">Sign Up</a></p>
+                         <p class="currentUser"><a class="nav-text" href="#">About</a></p>
+                         <% } else { %>
+                          <div class="currentUser dropdown">
+                              <p class="currentUser"><a class="user-menu nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
+                              <div class="dropdown-content">
+                                  <a href="/user/<%= currentUser._id %>/info">User dados</a>
+                                  <a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a>
+                                  <a href="/user/<%= currentUser._id %>/show_pet">View your pets</a>
+                                  <a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a>
+                                  <a href="/logout">Logout</a>
+                              </div>
+                          </div>
+                         <% }; %>
+                      </div>
+                  </nav>
+              </article>
+          
+          </header>
+
+<main class="o-main">
+    <!-- flashmessages goes here -->
+    <section class="main-info">
+        <h1>Pets_Travel</h1>
+        <!-- SEARCH FORM!! -->
+        <form class="formSearch" action="/search" method="GET">
+            <label for="make_search">
+                <input id="make_search" class="input" type="text" placeholder="Search" name="search">
+            </label>
+                <!-- <button>Submit</button> -->
+        </form>
+    </section>
+              
+        <ul class="background-imgs">
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Krista Mangulsone</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Kate Stone Matheson</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Conner Baker</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Timothy Meinberg</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Emerson Peters</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Dan Gold</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Javier Esteban</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Jenn Evelyn-Ann</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Atanas Teodosiev</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Cat Mapper (Max Ogden)</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <title>unsplash-logo</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                    </svg>
+                    </span>
+                    <span>Matthew Henry</span>
+                </a>
+            </li>
+              </ul>
+
+       </main>
+
+<% include ./partials/footer %>
+

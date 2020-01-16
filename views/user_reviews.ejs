@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+                <main class="o-main">
+                <section class="main-container">
+                <% include ./partials/flashMessages %>
+                    <h1 class="user-title"> Your Reviews: </h1>
+                    <div class="results">
+                    <% comments.forEach(function(review){ %>
+                        <div class="result-card">
+                        <div class="result-info">
+                        <ul>
+                                <li> <%= review.title %> </li>
+                                <li> <%= review.content %> </li>
+                        </ul>
+                        </div>
+                        </div>
+                    <% }); %>
+                    <% item.forEach(function(hotel){ %>
+                        <p><%= hotel.title %></p>
+                    <% }); %>
+                    </div>
+                </section>
+                </main>
+                <% include ./partials/footer %>

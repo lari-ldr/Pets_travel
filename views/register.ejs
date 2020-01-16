@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pets Travel</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
+    </head>
+    <body>
+       <main class="o-main">
+                <section class="container">
+                <% include ./partials/flashMessages %>
+                        <div class="mainForms">
+                    <form action="/register" method="POST">
+                        <h1>
+                                <a href="/">Pets_Travel</a>
+                                </h1>
+                            <h2>Sign Up</h2>
+                            <label for="firstName">First Name:</label>
+                            <input id="firstName" class="input" type="text" name="firstName" placeholder="first name">
+
+                            <label for="lastName">Last Name:</label>
+                            <input id="lastName" class="input" type="text" name="lastName" placeholder="last name">
+
+                            <label for="username">Username:</label>
+                            <input id="username" class="input" type="text" name="username" placeholder="username">
+
+                            <label for="birth">Birthday:</label>
+                            <input id="birth" class="input" type="date" name="birth">
+
+                            <label for="email">E-mail:</label>
+                            <input id="email" class="input" type="email" name="email" placeholder="email">
+
+                            <label for="password">Password:</label>
+                            <input id="password" class="input" type="password" name="password" placeholder="password">
+ 
+                            <button>Register</button>
+                            <a href="/">Go Back!</a>
+                        </form>
+
+                    </div>
+                </section>
+       </main>
+
+    </body>
+    </html>

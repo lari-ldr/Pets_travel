@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+
+       <main class="o-main">
+            <div>
+<h1>What you wanna do?</h1>
+<ul>
+    <li>
+        <a href="/user/<%= user._id %>/info">User dados</a>
+    </li>
+    <li>
+        <a href="/user/<%= user._id %>/add_pet">Add new pet</a>
+    </li>
+
+    <li>
+        <a href="/user/<%= user._id %>/show_pet">View your pets</a>
+    </li>
+    <li>
+        <a href="/user/<%= user._id %>/reviews">Your Reviews</a>
+    </li>
+    <li>
+        <a href="#">Historico de hoteis visitados</a>
+    </li>
+</ul>
+       </main>
+<% include ./partials/footer %>
