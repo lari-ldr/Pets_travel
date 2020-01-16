@@ -1053,7 +1053,7 @@ button{
 }
 
 .nav{
-    padding: 0.8rem;
+    padding: 0rem;
 }
 
 .nav-links{
@@ -1061,7 +1061,7 @@ button{
     position: fixed;
     right: 0px;
     height: 40vh;
-    top: 9vh;
+    top: 8vh;
     background-color: #2d3436;
     display: flex;
     flex-direction: column;
@@ -1092,8 +1092,11 @@ button{
 }
 
 .formSearch{
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin: 0rem 0.5rem;
+}
+
+#make_search{
+    height: 40px;
 }
 
 .dropdown-content a{

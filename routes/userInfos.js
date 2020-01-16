@@ -1,8 +1,9 @@
-const express       = require("express");
-const router        = express.Router();
-const middleware = require("../middleware/index_middleware");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router(),
+        middleware    = require("../middleware/index_middleware"),
+        hotel         = require("../models/hotel"),
+        Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+
 const {
     userLink,
     user,
@@ -27,7 +28,7 @@ router.get("/user/:id/info/edit", middleware.isLoggedIn, userEditGet);
 
 router.put("/user/:id/info", middleware.isLoggedIn, userEditPut);
 
-// delete user account with all the user informations (pets, reviews etc...)
+// delete user account with all the user informations
 router.delete("/user/:id/info", middleware.isLoggedIn, userDestroy);
 
 // show all user's reviews:

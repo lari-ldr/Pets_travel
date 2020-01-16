@@ -1,9 +1,9 @@
-const express       = require("express");
-const router        = express.Router({mergeParams: true});
-const middleware = require("../middleware/index_middleware");
-const hotel         = require("../models/hotel");
-const Comment       = require("../models/comment");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router({mergeParams: true}),
+        middleware    = require("../middleware/index_middleware"),
+        hotel         = require("../models/hotel"),
+        Comment       = require("../models/comment"),
+        Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 
 module.exports = {

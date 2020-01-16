@@ -44,17 +44,16 @@ const authorObj = [
 ];
 
 authorObj.forEach((element, url) =>{
-    // pra cada author e link criar uma li e uma a
+    // for each author and link create a li and a-tag
     const li = document.createElement("li");
     const a = document.createElement("a");
-    // pra cada author criar um text content
+    // for each author create a textContent
     a.textContent = element.author;
-    // pra cada link criar um href
+    // for each link create a href
     a.href = element.link;
-    // adicionar class ao a-tag
+    // add class to the a-tag
     a.classList.add("about-author");
-    // ligar a li ao ul e a a-tag ao li
+    // append the li to ul and the a-tag to the li
     ul.appendChild(li);
-    // pra cada link criar um href
     li.appendChild(a);
 });

@@ -1,8 +1,8 @@
-const express       = require("express");
-const router        = express.Router();
-const faker         = require("faker");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router(),
+        hotel         = require("../models/hotel"),
+        Item            = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+
 const {
     mainPage,
     resultPage,

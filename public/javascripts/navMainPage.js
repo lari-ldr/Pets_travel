@@ -1,7 +1,7 @@
 const navSlide = ()=>{
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links p");
+    const   burger      = document.querySelector(".burger"),
+            nav         = document.querySelector(".nav-links"),
+            navLinks    = document.querySelectorAll(".nav-links p");
  
     burger.addEventListener("click", ()=>{ 
         // Toggle nav
@@ -24,10 +24,10 @@ const navSlide = ()=>{
 navSlide();
 
 const hoverToToggle = (windowSize)=> {
-    const nav = document.querySelector(".nav-links");
-    const dropdownContent = document.querySelector(".dropdown-content");
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownHoverEffect = document.querySelector(".dropdownHoverEffect");
+    const   nav                 = document.querySelector(".nav-links"),
+            dropdownContent     = document.querySelector(".dropdown-content"),
+            dropdown            = document.querySelector(".dropdown"),
+            dropdownHoverEffect = document.querySelector(".dropdownHoverEffect");
 
   if (windowSize.matches) { // If media query matches
     // remove dropdown hover effect

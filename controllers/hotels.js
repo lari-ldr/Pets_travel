@@ -1,8 +1,8 @@
-const express       = require("express");
-const router        = express.Router();
-const faker         = require("faker");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router(),
+        faker         = require("faker"),
+        hotel         = require("../models/hotel"),
+        Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 module.exports = {
 
@@ -13,10 +13,10 @@ module.exports = {
 
 // Search result page
     resultPage(req, res, next){
-        var perPage = 10;
-        var pageQuery = parseInt(req.query.page); //page
-        var pageNumber = pageQuery ? pageQuery : 1;
-        var searchParams = req.query.search;
+        let perPage = 10;
+        let pageQuery = parseInt(req.query.page); //page
+        let pageNumber = pageQuery ? pageQuery : 1;
+        let searchParams = req.query.search;
     
         Item.find({ $text: { $search: searchParams } }, {score: {$meta: "textScore"}})
                     .sort( {score: {$meta: "textScore"}})

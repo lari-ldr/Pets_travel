@@ -1,12 +1,12 @@
-const express       = require("express");
-const router        = express.Router();
-const passport      = require("passport");
-const async         = require("async");
-const nodemailer    = require("nodemailer");
-const crypto        = require("crypto");
-const User          = require("../models/user");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router(),
+        passport      = require("passport"),
+        async         = require("async"),
+        nodemailer    = require("nodemailer"),
+        crypto        = require("crypto"),
+        User          = require("../models/user"),
+        hotel         = require("../models/hotel"),
+        Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 module.exports = {
 
@@ -16,7 +16,7 @@ module.exports = {
     },
 // Register POST
     registerPost(req, res, next){
-        var newUser = new User({
+        let newUser = new User({
             username: req.body.username,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -63,7 +63,7 @@ module.exports = {
         async.waterfall([
             function(done) {
                 crypto.randomBytes(20, function(err, buf){
-                    var token = buf.toString("hex");
+                    let token = buf.toString("hex");
                     done(err, token);
                 });
             },
@@ -83,7 +83,7 @@ module.exports = {
                 });
             },
             function(token, user, done) {
-                var smtpTransport = nodemailer.createTransport({
+                let smtpTransport = nodemailer.createTransport({
                                     tls: {
                         rejectUnauthorized: false
                     },
@@ -94,7 +94,7 @@ module.exports = {
                         pass: process.env.GMAIL_PASS
                     }
                 });
-                var mailOptions = {
+                let mailOptions = {
                     to: user.email,
                     from: "petstravel.infos@gmail.com",
                     subject: "Pets_travel Password Reset",
@@ -151,7 +151,7 @@ module.exports = {
                 });
             },
             function(user, done){
-                var smtpTransport = nodemailer.createTransport({
+                let smtpTransport = nodemailer.createTransport({
                     tls: {
                         rejectUnauthorized: false
                     },
@@ -162,7 +162,7 @@ module.exports = {
                         pass: process.env.GMAIL_PASS
                     }
                 });
-                var mailOptions = {
+                let mailOptions = {
                     to: user.email,
                     from: "petstravel.infos@gmail.com",
                     subject: 'Your password has been changed',

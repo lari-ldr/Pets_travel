@@ -1,10 +1,11 @@
-var mongoose = require("mongoose");
+const mongoose      = require("mongoose"),
+      faker         = require("faker"),
+      hotel         = require("./models/hotel"),
+      Comment       = require("./models/comment"),
+      Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
+
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
-const faker         = require("faker");
-var hotel         = require("./models/hotel");
-var Comment       = require("./models/comment");
-var Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
 let objImages = {
   imageUrban: [
@@ -110,35 +111,35 @@ let objImages = {
   };
 
 randomPhotos = () =>{
-  var random = Object.values(objImages);
-  var finalRandom = random[Math.floor(Math.random() * random.length)];
+  let random = Object.values(objImages);
+  let finalRandom = random[Math.floor(Math.random() * random.length)];
     return finalRandom;
 };
 
 
 const citiesAndCountry = [
-  {city: "New York", country: "United States"},
-  {city: "Tokio", country: "Japan"},
-  {city: "Amsterdam", country: "Netherlands"},
-  {city: "Madrid", country: "Espain"},
-  {city: "Oslo", country: "Norway"},
-  {city: "Mexico City", country: "Mexico"},
-  {city: "Berlim", country: "Germany"},
-  {city: "Johannesburg", country: "South Africa"},
-  {city: "Vancouver", country: "Canada"},
-  {city: "Lisbon", country: "Portugal"},
-  {city: "Buenos Aires", country: "Argentina"},
-  {city: "Lima", country: "Peru"},
-  {city: "Santiago", country: "Chile"},
-  {city: "São Paulo", country: "Brazil"}
+  {city: "New York",      country: "United States"},
+  {city: "Tokio",         country: "Japan"},
+  {city: "Amsterdam",     country: "Netherlands"},
+  {city: "Madrid",        country: "Espain"},
+  {city: "Oslo",          country: "Norway"},
+  {city: "Mexico City",   country: "Mexico"},
+  {city: "Berlim",        country: "Germany"},
+  {city: "Johannesburg",  country: "South Africa"},
+  {city: "Vancouver",     country: "Canada"},
+  {city: "Lisbon",        country: "Portugal"},
+  {city: "Buenos Aires",  country: "Argentina"},
+  {city: "Lima",          country: "Peru"},
+  {city: "Santiago",      country: "Chile"},
+  {city: "São Paulo",     country: "Brazil"}
 ];
 
-    function seedDB(){
+seedDB = () =>{
 
-      var stars = [1,2,3,4,5];
-      var randomStars = stars[Math.floor(Math.random() *stars.length)];
+      let stars = [1,2,3,4,5];
+      let randomStars = stars[Math.floor(Math.random() *stars.length)];
 
-      citiesAndCountry.forEach((seed) =>{
+citiesAndCountry.forEach((seed) =>{
 
         seed.title = faker.company.companyName(),
         seed.street = faker.address.streetName();
@@ -150,30 +151,9 @@ const citiesAndCountry = [
         Item.create(seed, (err, item) => {
           if(err){
             console.log(err);
+            return err;
           } else{
             console.log("hotel added");
-            // Item.createIndexes({$title: "text", city: "text"}, function(err, indexIntem){
-            //   if(err){
-            //     console.log(err);
-            //   } else{
-            //     console.log("index create sucessfully!");
-            //   }
-            // })
-            // Comment.create(
-            //           {
-            //             title: "this is a title",
-            //             content: "this is the content",
-            //             score: "6.5",
-            //             author: "bla"
-            //           }, function(err, comment){
-            //             if(err){
-            //               console.log(err);
-            //             } else{
-            //               item.comments.push(comment);
-            //               item.save();
-            //               console.log("created comment!!!");
-            //             }
-            //           });
           }
         });
     });
@@ -181,7 +161,7 @@ const citiesAndCountry = [
     };
 
 
-// colocar varias vezes os hoteis na database
+// To multiple the times of hotels in the DB
 
     // for(var i = 1; i < 20; i++){
     //   seedDB(i);

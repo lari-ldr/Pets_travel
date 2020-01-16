@@ -1,8 +1,9 @@
-const express       = require("express");
-const router        = express.Router();
-const middleware = require("../middleware/index_middleware");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express       = require("express"),
+        router        = express.Router(),
+        middleware    = require("../middleware/index_middleware"),
+        hotel         = require("../models/hotel"),
+        Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+
 const {
     newPet,
     newPetPost,

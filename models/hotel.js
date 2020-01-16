@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
 
-var hotelSchema = new mongoose.Schema({
+const hotelSchema = new mongoose.Schema({
     title: String,
     street: String,
     city: String,

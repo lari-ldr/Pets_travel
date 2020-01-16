@@ -1,10 +1,10 @@
-const express       = require("express");
-const router        = express.Router();
-const User          = require("../models/user");
-const Pet          = require("../models/pets");
-const Comment       = require("../models/comment");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const express       = require("express"),
+      router        = express.Router(),
+      User          = require("../models/user"),
+      Pet           = require("../models/pets"),
+      Comment       = require("../models/comment"),
+      hotel         = require("../models/hotel"),
+      Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 module.exports = {
 
@@ -87,7 +87,6 @@ module.exports = {
               } else{
                 res.render("user_reviews", {user: foundUser, comments: comments});
               }
-            // colocar o link relacionando o review feito com o hotel
           });
         });
     },

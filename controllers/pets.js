@@ -1,8 +1,8 @@
-const express       = require("express");
-const User          = require("../models/user");
-const Pet          = require("../models/pets");
-const hotel         = require("../models/hotel");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   express         = require("express"),
+        User            = require("../models/user"),
+        Pet             = require("../models/pets"),
+        hotel           = require("../models/hotel"),
+        Item            = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 module.exports = {
 

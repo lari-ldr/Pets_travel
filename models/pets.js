@@ -1,9 +1,9 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
 
-// PE TS
+// PETS
 
-var petSchema = new mongoose.Schema({
+const petSchema = new mongoose.Schema({
     birth: [
         month = String,
         day = String,

@@ -1,11 +1,11 @@
-var mongoose                = require("mongoose"),
-    passportLocalMongoose   = require("passport-local-mongoose")
+const   mongoose                    = require("mongoose"),
+        passportLocalMongoose       = require("passport-local-mongoose")
     
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
 
 // USERS
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true},
     password: String,

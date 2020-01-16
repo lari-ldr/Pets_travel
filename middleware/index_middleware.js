@@ -1,12 +1,12 @@
-const hotel         = require("../models/hotel");
-const Comment       = require("../models/comment");
-const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
+const   hotel           = require("../models/hotel"),
+        Comment         = require("../models/comment"),
+        Item            = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
   }
 
-var middlewareObjs = {};
+let middlewareObjs = {};
 
 middlewareObjs.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
