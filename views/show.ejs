@@ -1,67 +1,51 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
-<main class="o-main">
-    <section class="main-container">
+<main class="show-container">
             <% include ./partials/flashMessages %>
-            <div class="review-container">
-        <header class="item-header">
-            <h1><%= hotel.title %></h1>
-            <p> <strong><%= hotel.stars %></strong>/stars</p>
-        </header>
-            <small><%= hotel.street %>, <%= hotel.city %> - <%= hotel.state %>, <%= hotel.country %></small>  
+        <section class="show-wrapper">
+        <article class="show-card">
 
-            <div class="slider-holder">
-                <span id="slider-image-1"></span>
-                <span id="slider-image-2"></span>
-                <span id="slider-image-3"></span>
-                <span id="slider-image-4"></span>
-                <span id="slider-image-5"></span>
+        <ul class="show-card-top-bottom">
+            <li class="show-card-title"><%= hotel.title %></li>
+            <li class="show-card-stars"><%= hotel.stars %>/stars</li>
+            <li class="show-card-address"><%= hotel.street %>, <%= hotel.city %> - <%= hotel.country %></li>  
+        </ul>
 
-                <div class="image-holder">
+            <!-- IMAGE SLIDER STARTS HERE -->
+                <div id="slider">
+                    <figure>
                     <% for(var i = 0; i < hotel.image.length; i++){ %>
-                        <img src="<%= hotel.image[i] %>" class="slider-image">
+                        <img src="<%= hotel.image[i] %>">
                     <% }; %>
+                </figure>
                 </div>
-                    <div class="button-holder">
-                        <a href="#slider-image-1" class="slider-change"></a>
-                        <a href="#slider-image-2" class="slider-change"></a>
-                        <a href="#slider-image-3" class="slider-change"></a>
-                        <a href="#slider-image-4" class="slider-change"></a>
-                        <a href="#slider-image-5" class="slider-change"></a>
-                    </div>
-            </div>
-                <div class="description">
-                    <p><%= hotel.description %></p>
-                </div>
-                    <div class="price-link">
-                        <p>$ <%= hotel.price %>/night </p>
-                        <a href="#">Goes to the <%= hotel.title %>'s page for more info!</a>
-                    </div>      
-                </div>
-                <hr>
-                    <div class="review-container">
-                    <div class="review-title">
-                        <h2>Reviews</h2>
-                            <a href="/search/<%= hotel._id %>/comments/new">
-                            <strong>Make a new one!</strong>
-                            </a>
-                    </div>
-                        
+            <!-- IMAGE SLIDER FINISH HERE -->
+            
+            <ul class="show-card-top-bottom">
+                    <li class="show-card-description"><%= hotel.description %></li>
+                        <li class="show-card-price">$ <%= hotel.price %>/night </li>
+                        <li class="show-card-btn" ><a class="show-card-btn-link" href="#">Goes to the <%= hotel.title %>'s page for more info!</a></li class="show-card-btn">
+            </ul>
+                </article>
+                </section>
+                
+                <!-- REVIEWS STARTS HERE -->
+                <section class="review-background">
+                        <h2 class="review-section">Reviews</h2>
+                        <p class="review-link-p">
+                            <a class="review-link" href="/search/<%= hotel._id %>/comments/new">Make a new one!</a class="review-link" >
+                        </p>
+                            <div class="review-wrapper">
                             <% hotel.comments.forEach(function(comment){ %> 
-                        <div class="content-review">
-                        <div class="title-review">
-                            <p class="rating"><%= comment.score %></p>
-                            <p class="comment-title"> "<%= comment.title %>" </p>
-                        </div>
-                        <hr>
-                            <p class="comment"> <%= comment.content %> </p>
-                                <div class="date">
-                                    <p><strong> By: <%= comment.author.username %> </strong></p>
-                                    <p><%= comment.created.toDateString() %></p>
-                                </div>
-                        </div>
+                            <article  class="review-card">
+                            <p class="review-score"><%= comment.score %></p>
+                            <p class="review-title"> "<%= comment.title %>" </p>
+                            <p class="review-comment"> <%- comment.content %></p>
+                            <p class="review-submitted">By: <%= comment.author.username %></p>
+                            <p class="review-date"><%= comment.created.toDateString() %></p>
+
                             <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
-                                <div class="review-btn">     
+                                <div class="review-btn">
                                     <a class="edit" href="/search/<%= hotel._id %>/comments/<%= comment._id %>/edit">
                                         Edit
                                     </a>
@@ -72,9 +56,11 @@
                                     </form>
                                 </div>
                                 <% }; %>
+                            </article >
                                 <% }); %>
-                            </div>
-    </section>
+                          
+                    </div>
+                </section>
 </main>
 
 <% include ./partials/footer %>

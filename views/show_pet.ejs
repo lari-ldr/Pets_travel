@@ -1,22 +1,26 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
-                <main class="o-main">
-                <section class="main-container">
+                <main>
+                <section class="show-container">
                 <% include ./partials/flashMessages %>
-                    <h1 class="user-title"> Yours Pets </h1>
-                    <div class="results">
+                <div class="review-background">
+                    <h1 class="review-section"> Yours Pets </h1>
+                    <div class="review-wrapper">
                     <% pets.forEach(function(pets){ %>
-                        <div class="result-card">
-                        <div class="result-info">
-                        <ul>
-                                <li>Nick: <%= pets.petName %> </li>
-                                <li>Birth: <%= pets.birth %> </li>
-                                <li>Dog: <%= pets.dog %> </li>
-                                <li>Cat: <%= pets.cat %> </li>
-                                <li>Breed: <%= pets.breed %> </li>
-                                <li>Description: <%= pets.description %> </li>
-                        </ul>
-                        <div class="pet-btn"> 
+                        <div class="review-card">                     
+                            <p class="review-title">Nick: "<%= pets.petName %>" </p>
+                            <div class="birth-wrapper">
+                                <% var birth = pets.birth; %>
+    
+                                <% for(var i = 0; i <birth.length; i++) { %>
+                                    <p class="pet-information birth"><%= birth[i] %></p>
+                                   <% } %>
+                                </div>
+                            <p class="pet-information">It's a: <%= pets.dog %> <%= pets.cat %> </p>
+                            <p class="pet-information">Breed: <%= pets.breed %> </p>
+                            <p class="review-comment"> <%= pets.description %> </p>
+
+                        <div class="review-btn"> 
                                 <a class="edit" href="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>/edit">
                                     Edit
                                 </a>
@@ -28,10 +32,17 @@
                             </form>
                             </div>
         
-                        </div>
-                        </div>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
                     <% }); %>
                     </div>
+                </div>
                     </section>
                 </main>
+
                 <% include ./partials/footer %>
+
+                <scrip>
+                    <!-- quando o dog for true, não mostrar o cat e vice e versa-->
+                </scrip>

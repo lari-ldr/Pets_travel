@@ -1,27 +1,31 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
 
-<main class="o-main">
-                <section class="main-container">
-                <% include ./partials/flashMessages %>
-                        <h1 class="user-title">Edit your review </h1>
-                        <div class="user-container">
-                <form class="user-form" action="/search/<%= hotel_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
-                        <label for="title_comment">Title's comment</label>
-                        <input class="input" id="title_comment" type="text" value="<%= comment.title %>" name="comment[title]">
+<main>
+<section class="form-container">
+        <% include ./partials/flashMessages %>
+        <article class="form-wrapper">
+
+        <h1 class="form-user-title">Edit your review </h1>
+
+        <form class="form-card" action="/search/<%= hotel_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <label for="title_comment">Title's comment</label>
+                <input class="input" id="title_comment" type="text" value="<%= comment.title %>" name="comment[title]">
                         
-                        <label for="content">Content</label>
-                        <input class="input" id="content" type="text" value="<%= comment.content %>" name="comment[content]">
+                <label for="content">Content</label>
+                <input class="input form-text-description" id="content" type="text" maxlength="300" value="<%= comment.content %>" name="comment[content]">
                         
-                        <label for="score">Score</label>
-                        <input class="input" id="score" type="number" value="<%= comment.score %>" name="comment[score]" max="10.00" min="0.01" step="0.01"></input>
+                <label for="score">Score</label>
+                <input class="input" id="score" type="number" value="<%= comment.score %>" name="comment[score]" max="10.0" min="0.0" step="0.5"></input>
                         
-                        <p>By: <%= currentUser.username %></p>
-                        <button>Submit comment!!!</button>
-                        <a href="/search/<%= hotel_id %>">Go Back!</a>
-                </form>
-                </div>
-        </section>
+                <p>By: <%= currentUser.username %></p>
+
+                <button>Submit Review</button>
+
+                <a href="/search/<%= hotel_id %>">Go Back!</a>
+        </form>
+        </article>
+</section>
 </main>
 
 <% include ./partials/footer %>

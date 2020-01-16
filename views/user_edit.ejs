@@ -1,32 +1,39 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
 
-<main class="o-main">
-    <section class="main-container">
-    <% include ./partials/flashMessages %>
-    <h1 class="user-title">Owner informations Edit: </h1>
-    <div class="user-container">
-        <form class="user-form" action="/user/<%= currentUser._id %>/info?_method=PUT" method="POST">
-            <label for="firstName">First Name</label>
+<main>
+    <section class="form-container">
+        <!-- FLASH MESSAGES -->
+        <% include ./partials/flashMessages %>
+    <article class="form-wrapper">
+        
+        <h1 class="form-user-title">Owner informations Edit: </h1>     
+
+        <form class="form-card" action="/user/<%= currentUser._id %>/info?_method=PUT" method="POST">
+            <label for="firstName">First Name:</label>
             <input id="firstName" class="input" type="text" name="user[firstName]" placeholder="first name" value="<%= currentUser.firstName %>">
                             
-            <label for="lastName">Last Name</label>
+            <label for="lastName">Last Name:</label>
             <input id="lastName" class="input" type="text" name="user[lastName]" placeholder="last name" value="<%= currentUser.lastName %>">
                             
-            <label for="username">User name</label>
-            <input id="username" class="input" type="text" name="user[username]" placeholder="username" value="<%= currentUser.username %>">
+            <label for="username">Username:</label>
+            <input disabled id="username" class="input disabled" type="text" name="user[username]" placeholder="username" value="<%= currentUser.username %>">
                             
-            <label for="birth">Birthday</label>
-            <input id="birth" class="input" type="date" name="user[birth]" value="<%= currentUser.birth %>">
+            <label>Birthday:</label>
+                <ul class="birth-wrapper-edit">
+                    <% var birth = user.birth; %>
+                    <% for(var i = 0; i <birth.length; i++) { %>
+                        <li class="inputFake"><%= birth[i] %></li>
+                    <% } %>
+                </ul>
                             
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input id="email" class="input" type="email" name="user[email]" placeholder="email" value="<%= currentUser.email %>">
                             
-            <p>password</p>
- 
             <button>Confirm</button>
+            <a href="/user/<%= user._id %>/info">Go Back!</a>
         </form>
-    </div>
-    </section>
+    </article>
+</section>
 </main>
 <% include ./partials/footer %>

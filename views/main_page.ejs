@@ -1,36 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pets Travel</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/stylesheet/landing.css">
-    </head>
-    <body>
-<!-- body header goes here -->
+<% include ./partials/headerLandingLoginRegister %>
+
 <header class="o-header">
 
               <article class="container">
                   <nav>
 
                       <!-- CURRENT USER -->
-                      <div>                            
-                          <% if(!currentUser){ %>
-                          <p class="currentUser"><a class="nav-text" href="/login">Login</a></p>
-                         <p class="currentUser"><a class="nav-text" href="/register">Sign Up</a></p>
-                         <p class="currentUser"><a class="nav-text" href="#">About</a></p>
-                         <% } else { %>
-                          <div class="currentUser dropdown">
-                              <p class="currentUser"><a class="user-menu nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
-                              <div class="dropdown-content">
-                                  <a href="/user/<%= currentUser._id %>/info">User dados</a>
-                                  <a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a>
-                                  <a href="/user/<%= currentUser._id %>/show_pet">View your pets</a>
-                                  <a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a>
-                                  <a href="/logout">Logout</a>
-                              </div>
-                          </div>
-                         <% }; %>
-                      </div>
+                      <% if(!currentUser){ %>
+                        <div class="nav-links">   
+                            <p class="currentUser"><a class="nav-text" href="/login">Login</a></p>
+                           <p class="currentUser"><a class="nav-text" href="/register">Sign Up</a></p>
+                           <p class="currentUser"><a class="nav-text" href="/about">About</a></p>
+                        </div>
+                           <% } else { %>
+                            <div class="dropdown dropdownHoverEffect">
+                                <p class="UserNameNot"><a class="nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
+                                <div class="dropdown-content">
+                                    <p><a href="/user/<%= currentUser._id %>/info">User dados</a></p>
+                                    <p><a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></p>
+                                    <p><a href="/user/<%= currentUser._id %>/show_pet">View your pets</a></p>
+                                    <p><a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></p>
+                                    <p><a href="/logout">Logout</a></p>
+                                </div>
+                            </div>
+                           <% }; %>
+            
+                        <div class="burger">
+                            <div class="line1"></div>
+                            <div class="line2"></div>
+                            <div class="line3"></div>
+                        </div>
                   </nav>
               </article>
           
@@ -39,7 +38,8 @@
 <main class="o-main">
     <!-- flashmessages goes here -->
     <section class="main-info">
-        <h1>Pets_Travel</h1>
+        <h1>Pets<i class="fas fa-paw"></i>travel</h1>
+        <% include ./partials/flashMessages %>
         <!-- SEARCH FORM!! -->
         <form class="formSearch" action="/search" method="GET">
             <label for="make_search">
@@ -49,131 +49,9 @@
         </form>
     </section>
               
-        <ul class="background-imgs">
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Krista Mangulsone</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Kate Stone Matheson</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Conner Baker</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Timothy Meinberg</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Emerson Peters</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Dan Gold</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Javier Esteban</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Jenn Evelyn-Ann</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Atanas Teodosiev</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Cat Mapper (Max Ogden)</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <title>unsplash-logo</title>
-                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                    </svg>
-                    </span>
-                    <span>Matthew Henry</span>
-                </a>
-            </li>
-              </ul>
+    <% include ./partials/landingBackground %>
 
        </main>
 
-<% include ./partials/footer %>
+<% include ./partials/footerLandingLoginRegister %>
 

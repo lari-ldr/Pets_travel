@@ -1,32 +1,46 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
-                <main class="o-main">
-                    <section class="main-container">
-                    <% include ./partials/flashMessages %>
-                    <h1 class="user-title"> <%= currentUser.username %>'s information: </h1>
-                    <div class="result-card">
-                    <div class="result-info">
-                        <ul>
-                            <li>First Name: <%= user.firstName %> </li>
-                            <li>Last Name: <%= user.lastName %> </li>
-                            <li> Username: <%= user.username %> </li>
-                            <li>Birthday: <%= user.birth %> </li>
-                            <li>E-mail: <%= user.email %> </li>
-                            <li>Password: password</li>
-                        </ul>
-                        <div class="pet-btn">
-                                <a class="edit" href="/user/<%= currentUser._id %>/info/edit">
-                                    Edit
-                                </a>
+<main>
+    <section class="show-container">
+        <!-- FLASH MESSAGES -->
+        <% include ./partials/flashMessages %>
+
+        <article class="show-wrapper">
+            <div class="show-card user-card">
+                <h1 class="show-card-title"> <%= currentUser.username %>'s information: </h1>
+                    
+                    <ul class="user-info">
+                        <li>First Name: <%= user.firstName %> </li>
+                        <li>Last Name: <%= user.lastName %> </li>
+                        <li> Username: <%= user.username %> </li>
+                    </ul>
+
+                    <ul class="birth-wrapper user-info">
+                        <li class="user-info-li">Birth: </li>
+                        <% var birth = user.birth; %>
+                        <% for(var i = 0; i <birth.length; i++) { %>
+                        <li class="birth"><%= birth[i] %></li>
+                        <% } %>
+                    </ul>
+
+                    <ul class="user-info user-space-bottom">
+                        <li>E-mail: <%= user.email %> </li>
+                        <li>Password: <a class="password-link" href="/forgot">Change me!</a></li>
+                    </ul>   
+                    
+                    <div class="review-btn">
+                        <a class="edit" href="/user/<%= currentUser._id %>/info/edit">
+                            Edit
+                        </a>
                 
-                        <form action="/user/<%= currentUser._id %>/info?_method=DELETE" method="POST">
-                            <label for="delete">
-                                    <input class="delete" id="delete" type="submit" value="Delete yourself :(">
-                            </label>
-                        </form>
+                    <form action="/user/<%= currentUser._id %>/info?_method=DELETE" method="POST">
+                        <label for="delete">
+                            <input class="delete" id="delete" type="submit" value="Delete yourself">
+                        </label>
+                    </form>
                     </div>
                     </div>
-                    </div>
-                    </section>
-                </main>
-                <% include ./partials/footer %>
+        </article>
+    </section>
+</main>
+<% include ./partials/footer %>

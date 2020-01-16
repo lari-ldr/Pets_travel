@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pets Travel</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
-    </head>
-    <body>
-        
-       <main class="o-main">
-        <section class="container">
-        <% include ./partials/flashMessages %>
-                <div class="mainForms">
+<% include ./partials/headerLandingLoginRegister %>
+       <main> 
+        <section class="form-container background-forgot-restore">
+        <article class="form-wrapper">
                     <form action="/reset/<%= token %>" method="POST">
-                            <h1>New password</h1>
-
+                            <h1 class="formTitle">New password</h1>
+                            <% include ./partials/flashMessages %>
                             <label for="new_password">New password</label>
                             <input id="new_password" class="input" type="password" name="password" placeholder="new password">
 
@@ -21,8 +13,7 @@
                             
                             <button type="submit">Enter</button>
                         </form>
-                    </div>
+                    </article>
                 </section>
                </main>
-        </body>
-        </html>
+               <% include ./partials/footerLandingLoginRegister %>

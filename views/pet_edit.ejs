@@ -1,36 +1,46 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
 
-<main class="o-main">
-    <section class="main-container">
+<main>
+<section class="form-container">
+    <!-- FLASH MESSAGES -->
     <% include ./partials/flashMessages %>
-        <h1 class="user-title">Edit pet's informations:</h1>
-        <div class="user-container">
-            <form class="user-form" action="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>?_method=PUT" method="POST">
-                <label for="pets_name">Pet's Name</label>
-                <input id="pets_name" class="input" type="text" name="pets[petName]" placeholder="your pet's name" value="<%= pets.petName %>">
-                
-                <label for="age">Age</label>
-                <input id="age" class="input" type="date" name="pets[birth]" placeholder="" value="<%= pets.age %>">
 
-                <div class="animal-radio">
-                    <label for="cat">Cat</label>
-                    <input id="cat" type="radio" name="pet[cat]" value="<%= pets.cat %>" placeholder="cat">
+    <article class="form-wrapper">
+
+        <h1 class="form-user-title">Edit pet's informations:</h1>
+
+        <form class="form-card" action="/user/<%= currentUser._id %>/show_pet/<%= pets._id %>?_method=PUT" method="POST">
             
-                    <label for="dog">Dog</label>
-                    <input id="dog" type="radio" name="pet[dog]" value="<%= pets.dog %>" placeholder="dog">
-                </div>
+            <label for="pets_name">Pet's Nickame:</label>
+            <input id="pets_name" class="input" type="text" name="pets[petName]" placeholder="your pet's name" value="<%= pets.petName %>">
+                
+            <p>Birth:</p>
+            <div class="birth-wrapper-edit">
+                <% var birth = pets.birth; %>
 
-                <label for="breed">Breed</label>
-                <input id="breed" class="input" type="text" name="pets[breed]" placeholder="breed" value="<%= pets.breed %>">
+                <% for(var i = 0; i <birth.length; i++) { %>
+                    <p class="inputFake" ><%= birth[i] %></p>
+                <% } %>
+            </div>
+            
+            <ul>
+                <li>It's a:</li>
+                <li class="birth-wrapper-edit inputFake"><%= pets.cat %><%= pets.dog %>!</li>
+            </ul>
 
-                <label for="description">Description</label>
-                <input id="description" class="textarea" type="text" name="pets[description]" placeholder="insert any details that you want" value="<%= pets.description %>">
+            <label for="breed">Breed:</label>
+            <input id="breed" class="input" type="text" name="pets[breed]" placeholder="breed" value="<%= pets.breed %>">
+
+            <label for="description">Description:</label>
+            <input id="description" class="input form-text-description" type="text" maxlength="300" name="pets[description]" placeholder="insert any details that you want" value="<%= pets.description %>">
 
                 <button>Submit!!!</button>
-            </form>
-        </div>
-    </section>
+
+            <a href="/user/<%= user._id %>/show_pet">Go Back!</a>
+        </form>
+    </article>
+</section>
 </main>
 
 <% include ./partials/footer %>

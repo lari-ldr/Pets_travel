@@ -20,7 +20,9 @@ const express       = require("express"),
 // Requiring Routes
 const hotelsRoutes       = require("./routes/hotels"),
       commentsRoutes     = require("./routes/comments"),
-      authUserRoutes     = require("./routes/authUser")
+      authUserRoutes     = require("./routes/authUser"),
+      userInfosRoutes    = require("./routes/userInfos"),
+      petsRoutes         = require("./routes/pets")
 
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
@@ -29,7 +31,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-// generatedItem();
 
 const Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
@@ -68,7 +69,7 @@ app.use(function (req, res, next){
 app.use(hotelsRoutes);
 
 // =====================
-// COMMENTS ROUTE
+// COMMENTS ROUTES
 // =====================
 
 app.use(commentsRoutes);
@@ -78,6 +79,18 @@ app.use(commentsRoutes);
 // ==========================
 
 app.use(authUserRoutes);
+
+// ==========================
+// USER INFOS ROUTES
+// ==========================
+
+app.use(userInfosRoutes);
+
+// ==========================
+// PETS ROUTES
+// ==========================
+
+app.use(petsRoutes);
 
 // ====================================
 // 404 page

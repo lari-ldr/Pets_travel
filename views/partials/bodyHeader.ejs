@@ -1,39 +1,47 @@
-<header class="o-header">
+<header>
 
-    <article class="container">
-        <nav>
+    <article>
+        <nav class="nav" id="topNav">
+            <!-- LOGO -->
             <h1>
-                <a class="nav-text" href="/">Pets_Travel</a>
+                <a class="nav-text paw-internet" href="/">Pets<i class="fas fa-paw"></i>travel</a>
             </h1>
 
             <!-- SEARCH FORM!! -->
-            <form class="formSearch" action="/search" method="GET">
+            <form class="formSearch formSearchClosed" action="/search" method="GET">
                     <label for="make_search">
-                        <input id="make_search" class="input" type="text" placeholder="Search" name="search">
+                        <input id="make_search" type="text" placeholder="Search" name="search">
                     </label>
-            
-            <!-- <button>Submit</button> -->
             </form>
-            
-            <!-- CURRENT USER -->
-            <div>                            
+            <p class="search-mobile-icon"><i class="fas fa-search"></i></p>
+
+            <!-- CURRENT USER DROWDOWN AND BURGUER -->
+
                 <% if(!currentUser){ %>
-                <p class="currentUser"><a class="nav-text" href="/login">Login</a></p>
-               <p class="currentUser"><a class="nav-text" href="/register">Sign Up</a></p>
+            <ul class="nav-links">   
+                <li class="currentUser userResized"><a class="nav-text" href="/login">Login</a></li>
+               <li class="currentUser userResized"><a class="nav-text" href="/register">Sign Up</a></li>
+            </ul>
                <% } else { %>
-                <div class="currentUser dropdown">
-                    <p class="currentUser"><a class="user-menu nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
-                    <div class="dropdown-content">
-                        <a href="/user/<%= currentUser._id %>/info">User dados</a>
-                        <a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a>
-                        <a href="/user/<%= currentUser._id %>/show_pet">View your pets</a>
-                        <a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a>
-                        <a href="/logout">Logout</a>
-                    </div>
+                <div class="dropdown dropdownHoverEffect">
+                    <p class="UserNameNot"><a class="nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
+                    <ul class="dropdown-content">
+                        <li><a href="/user/<%= currentUser._id %>/info">User dados</a></li>
+                        <li><a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></li>
+                        <li><a href="/user/<%= currentUser._id %>/show_pet">View your pets</a></li>
+                        <li><a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></li>
+                        <li><a href="/logout">Logout</a></p>
+                    </ul>
                 </div>
                <% }; %>
+
+            <!-- BURGUER -->
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </nav>
     </article>
-
 </header>

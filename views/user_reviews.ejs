@@ -1,23 +1,23 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
-                <main class="o-main">
-                <section class="main-container">
+                <main>
+                    <section class="show-container">
                 <% include ./partials/flashMessages %>
-                    <h1 class="user-title"> Your Reviews: </h1>
-                    <div class="results">
+                <div class="review-background">
+                    <h1 class="review-section"> Your Reviews: </h1> 
+                    <div class="review-wrapper">
                     <% comments.forEach(function(review){ %>
-                        <div class="result-card">
-                        <div class="result-info">
-                        <ul>
-                                <li> <%= review.title %> </li>
-                                <li> <%= review.content %> </li>
-                        </ul>
-                        </div>
+                        <div class="review-card">
+        
+                            <p class="review-score"><%= review.score %></p>
+                                <p class="review-title"> "<%= review.title %>" </p>
+                                <p class="review-comment"> <%= review.content %></p>
+                                <p class="review-submitted">By: <%= review.author.username %></p>
+                                <p class="review-date"><%= review.created.toDateString() %></p>
                         </div>
                     <% }); %>
-                    <% item.forEach(function(hotel){ %>
-                        <p><%= hotel.title %></p>
-                    <% }); %>
+                    
+                    </div>
                     </div>
                 </section>
                 </main>

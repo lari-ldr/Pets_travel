@@ -11,7 +11,11 @@ var userSchema = new mongoose.Schema({
     password: String,
     firstName: String,
     lastName: String,
-    birth: Date,
+    birth: [
+        month = String,
+        day = String,
+        year = String,
+    ],
     resetPasswordToken: String,
     resetPasswordExpires: Date,
 }, {collection: "users"}

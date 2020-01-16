@@ -1,44 +1,44 @@
-<section class="main-container">
-<div class="pagination">
+<section class="pagination-wrapper">
+<article class="pagination">
     <% if (pages && pages > 0) { %>
         <% if (current == 1) { %>
-        <a>First</a>
+        <a class="pagination-links">First</a>
         <% } else { %>
-        <a href="/search<%if(search){%>?search=<%=search%><%}%>">First</a>
+        <a class="pagination-links" href="/search<%if(search){%>?search=<%=search%><%}%>">First</a>
         <% } %>
  
         <% if (current == 1) { %>
-        <a>«</a>
+        <a class="pagination-links">«</a>
         <% } else { %>
-        <a href="/search?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a>
+        <a class="pagination-links" href="/search?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a>
         <% } %>
  
         <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
         <% if (i !== 1) { %>
-        <a>...</a>
+        <a class="pagination-links">...</a>
         <% } %>
         <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
         <% if (i == current) { %>
-        <a class="active"><%= i %></a>
+        <a class="pagination-links active-page"><%= i %></a>
         <% } else { %>
-        <a href="/search?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a>
+        <a class="pagination-links" href="/search?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a>
         <% } %>
         <% if (i == Number(current) + 4 && i < pages) { %>
-        <a>...</a>
+        <a class="pagination-links">...</a>
         <% } %>
         <% } %>
  
         <% if (current == pages) { %>
-        <a>»</a>
+        <a class="pagination-links">»</a>
         <% } else { %>
-        <a href="/search?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a>
+        <a class="pagination-links" href="/search?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a>
         <% } %>
  
         <% if (current == pages) { %>
-        <a>Last</a>
+        <a class="pagination-links">Last</a>
         <% } else { %>
-        <a href="/search?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a>
+        <a class="pagination-links" href="/search?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a>
         <% } %>
     <% } %>
-</div>
+</article>
 </section>

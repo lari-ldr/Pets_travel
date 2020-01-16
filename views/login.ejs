@@ -1,33 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pets Travel</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
-    </head>
-    <body>
-        
-       <main class="o-main">
-        <section class="container">
-        <% include ./partials/flashMessages %>
-                <div class="mainForms">
+<% include ./partials/headerLandingLoginRegister %>
+       <main>
+        <section class="form-container">
+                <article class="form-wrapper">
                     <form action="/login" method="POST">
-                        <h1>
+                        <h1 class="formTitle">
                         <a href="/">Pets_Travel</a>
                         </h1>
+                        <% include ./partials/flashMessages %>
                             <h2>Login</h2>
                             <label for="username">Username:</label>
                             <input id="username" class="input" type="text" name="username" placeholder="username">
                             
                             <label for="password">Password</label>
-                            <small><a href="/forgot">Forgot?</a></small>
+                            <small><a class="form-links" href="/forgot">Forgot?</a class="form-links"></small>
                             
                             <input id="password" class="input" type="password"  name="password" placeholder="password">
                             <button>Enter</button>
-                            <a href="/">Go Back!</a>
+                            <p><a class="form-links" href="/">Go Back!</a></p>
+                            <p><a class="form-links" href="/register">Don't have an account? Join</a></p>
                         </form>
-                </div>
+                </article>
         </section>
+
+        <% include ./partials/landingBackground %>
+
        </main>
 
-</body>
-</html>
+       <% include ./partials/footerLandingLoginRegister %>

@@ -5,7 +5,6 @@ var hotelSchema = new mongoose.Schema({
     title: String,
     street: String,
     city: String,
-    state: String,
     country: String,
     stars: Number,
     image: [String],

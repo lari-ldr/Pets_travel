@@ -1,49 +1,37 @@
 <% include ./partials/header %>
 
-        <% include ./partials/bodyHeader %>
+<% include ./partials/bodyHeader %>
 
-       <main class="o-main">
-           
+<main class="results-container">
 <!-- PAGINATION TOP -->
-           
 <% include ./partials/pagination %>
-<section class="main-container">
+<!-- FLASH MESSAGES-->
 <% include ./partials/flashMessages %>
-<div class="results">
+<section class="results-wrapper">
 <!-- SEARCH RESULTS -->
         <% if(results){ %>
         <%  if(list.length > 0){ %>
         <!-- <b>Resultados da pesquisa por:</b> -->
         <% list.forEach(function(hotel){ %>
-        <div class="result-card">
-            <div class="result-image">
+        <article class="result-card">
                 <% for(var i = 4; i < hotel.image.length; i++){ %>
-                <img src="<%= hotel.image[i] %>" alt="...">
+                <img class="card-img" src="<%= hotel.image[i] %>" alt="...">
                 <% }; %>
-            </div>
-            <div class="result-info">
-                <div class="info-top">
-                    <p><%= hotel.title %></p>
-                    <p> <%= hotel.stars %>/stars</p>
-                </div>
-                    <p class="info-local"><%= hotel.street %>, <%= hotel.city %> - <%= hotel.state %>, <%= hotel.country %></p>  
-                    <p class="info-des"><%= hotel.description.substring(0,100) %>...</p>
-                <div class="info-bottom">
-                    <p>$<%= hotel.price %>/night </p>
-                    <a href="/search/<%= hotel._id %>" method="GET">See more Infos!</a>
-                </div>
-            </div>
-        </div>
+                    <p class="card-title"><%= hotel.title %></p>
+                    <p class="card-stars"> <%= hotel.stars %>/stars</p>
+                    <p class="card-address"><%= hotel.street %>, <%= hotel.city %> - <%= hotel.country %></p>  
+                    <p class="card-description"><%= hotel.description.substring(0,100) %>...</p>
+                    <p class="card-price">$<%= hotel.price %>/night </p>
+                    <a class="card-btn" href="/search/<%= hotel._id %>" method="GET">See more Infos!</a>
+                </article>
                 <% }); %>
             <%  } %>
         <% } %>
-
-    </div>
-</section>
-        
+    </section>
+       
  <!-- PAGINATION BOTTON -->
 
 <% include ./partials/pagination %>
 
-       </main>
-       <% include ./partials/footer %>
+</main>
+<% include ./partials/footer %>

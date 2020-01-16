@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pets Travel</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheet/loginAndRegister.css">
-    </head>
-    <body>
-       <main class="o-main">
-                <section class="container">
-                <% include ./partials/flashMessages %>
-                        <div class="mainForms">
-                    <form action="/register" method="POST">
-                        <h1>
-                                <a href="/">Pets_Travel</a>
-                                </h1>
-                            <h2>Sign Up</h2>
+<% include ./partials/headerLandingLoginRegister %>
+       <main>
+                <section class="form-container form-container-register">
+                    <article class="form-wrapper form-wrapper-register">
+                    <form id="userForm"  action="/register" method="POST">
+                        
+                        <h1 class="formTitle">
+                            <a href="/">Pets_Travel</a>
+                        </h1>
+                        <% include ./partials/flashMessages %>
+                        <h2>Sign Up</h2>
+                            
                             <label for="firstName">First Name:</label>
                             <input id="firstName" class="input" type="text" name="firstName" placeholder="first name">
 
@@ -23,9 +19,21 @@
                             <label for="username">Username:</label>
                             <input id="username" class="input" type="text" name="username" placeholder="username">
 
-                            <label for="birth">Birthday:</label>
-                            <input id="birth" class="input" type="date" name="birth">
-
+                    <label>Birth:</label>
+                    <div class="birth-wrapper">
+                    <select class="input selectDay" name="birth" class="day" form="userForm">
+                        <option value="0" selected="">Day</option>  
+                    </select>
+                    
+                    <select class="input selectMonth" name="birth" class="month" form="userForm">
+                        <option value="0" selected="">Month</option>
+                    </select>
+                    
+                    <select class="input selectYear" name="birth" class="year" form="userForm">
+                        <option value="0" selected="">Year</option>
+                    </select>
+                </div>
+            
                             <label for="email">E-mail:</label>
                             <input id="email" class="input" type="email" name="email" placeholder="email">
 
@@ -33,12 +41,15 @@
                             <input id="password" class="input" type="password" name="password" placeholder="password">
  
                             <button>Register</button>
-                            <a href="/">Go Back!</a>
+                            <p><a class="form-links" href="/">Go Back!</a></p>
+                       
                         </form>
 
-                    </div>
+                    </article>
                 </section>
+
+                <% include ./partials/landingBackground %>
+
        </main>
 
-    </body>
-    </html>
+       <% include ./partials/footerLandingLoginRegister %>

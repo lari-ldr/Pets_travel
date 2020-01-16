@@ -1,26 +1,25 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
 
-       <main class="o-main">
-            <div>
-<h1>What you wanna do?</h1>
-<ul>
-    <li>
-        <a href="/user/<%= user._id %>/info">User dados</a>
-    </li>
-    <li>
-        <a href="/user/<%= user._id %>/add_pet">Add new pet</a>
-    </li>
+<% include ./partials/header %>
+<% include ./partials/bodyHeader %>
+<main>
+    <section class="show-container">
+        <!-- FLASH MESSAGES -->
+        <% include ./partials/flashMessages %>
 
-    <li>
-        <a href="/user/<%= user._id %>/show_pet">View your pets</a>
-    </li>
-    <li>
-        <a href="/user/<%= user._id %>/reviews">Your Reviews</a>
-    </li>
-    <li>
-        <a href="#">Historico de hoteis visitados</a>
-    </li>
-</ul>
-       </main>
+        <article class="show-wrapper">
+            <div class="show-card user-card">
+                <h1 class="show-card-title"> What you wanna do?</h1>
+                    
+                    <ul class="user-info">
+                        <li><a class="password-link" href="/user/<%= currentUser._id %>/info">User dados</a></li>
+                        <li><a class="password-link" href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></li>
+                        <li><a class="password-link" href="/user/<%= currentUser._id %>/show_pet">View your pets</a></li>
+                        <li><a class="password-link" href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></li>
+                    </ul>
+
+        </article>
+    </section>
+</main>
 <% include ./partials/footer %>
