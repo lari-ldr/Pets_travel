@@ -2,7 +2,6 @@ const express       = require("express");
 const router        = express.Router();
 const hotel         = require("../models/hotel");
 const Item        = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
-const Admin          = require("../models/admin");
 const {
     register,
     registerPost,
