@@ -19,7 +19,7 @@
                 <% }; %>
                     <p class="card-title"><%= hotel.title %></p>
                     <p class="card-stars"> <%= hotel.stars %>/stars</p>
-                    <p class="card-address"><%= hotel.street %>, <%= hotel.city %> - <%= hotel.country %></p>  
+                    <p class="card-address"><i class="fas fa-map-marker-alt"></i><%= hotel.street %>, <%= hotel.city %> - <%= hotel.country %></p>  
                     <p class="card-description"><%= hotel.description.substring(0,100) %>...</p>
                     <p class="card-price">$<%= hotel.price %>/night </p>
                     <a class="card-btn" href="/search/<%= hotel._id %>" method="GET">See more Infos!</a>

@@ -330,6 +330,10 @@ button:hover{
     margin-bottom: 0.5rem;
 }
 
+.fa-map-marker-alt {
+    margin-right: 0.2rem;
+}
+
 .show-card-description{
     font-size: 1.2rem;
     margin: 1.5rem 0;
