@@ -24,7 +24,13 @@ const hotelsRoutes       = require("./routes/hotels"),
       userInfosRoutes    = require("./routes/userInfos"),
       petsRoutes         = require("./routes/pets")
 
-mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
+const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
+
+mongoose.connect(urlDB, { useNewUrlParser: true });
+// mongoose.connect("mongodb+srv://lari_ldr:Ki6tI1HZ8wpkxAbR@petstravel-lt2zk.mongodb.net/test?retryWrites=true&w=majority",
+// { useNewUrlParser: true }).then(()=>{
+    // console.log("connect to the db");
+// });
 mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -34,6 +40,7 @@ app.use(flash());
 
 const Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
+// seed the database
 // seedDB();
 
 // ===================

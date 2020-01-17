@@ -31,10 +31,10 @@ const monthNames = ["January", "February", "March",
 
 
 //Select Years
-const 	min = 1920,
-    	max = 2020;
+const 	minYear = 1920,
+    	maxYear = 2020;
 
-for (var i = max; i>=min; i--){
+for (var i = maxYear; i>=minYear; i--){
     var opt = document.createElement('option');
     opt.value = i;
     opt.textContent = i;
