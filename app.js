@@ -26,11 +26,22 @@ const hotelsRoutes       = require("./routes/hotels"),
 
 const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
 
-mongoose.connect(urlDB, { useNewUrlParser: true });
-// mongoose.connect("mongodb+srv://lari_ldr:Ki6tI1HZ8wpkxAbR@petstravel-lt2zk.mongodb.net/test?retryWrites=true&w=majority",
-// { useNewUrlParser: true }).then(()=>{
-    // console.log("connect to the db");
+// CONNECT WITH LOCAL DB
+// mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
+//     console.log("Connect to the Local DB Mongo");
+// }).catch((err) =>{
+//     console.log("err: " + err);
+//     return err;
 // });
+
+// CONNECT WITH ATLAS CLOUD
+// mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
+//     console.log("Connect to the DB Mongo_Atlas");
+// }).catch((err) =>{
+//     console.log("err: " + err);
+//     return err;
+// });
+
 mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -49,7 +60,7 @@ const Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
 // setup express-session
 app.use(require("express-session")({
-    secret: "infections of a different kind of human",
+    secret: process.env.EXPRESSSESSIONSECRET,
     resave: false,
     saveUninitialized: false,
 }));
@@ -82,7 +93,7 @@ app.use(hotelsRoutes);
 app.use(commentsRoutes);
 
 // ==========================
-// AUTH ROUTEs - Client Side
+// AUTH ROUTEs
 // ==========================
 
 app.use(authUserRoutes);

@@ -119,18 +119,18 @@ randomPhotos = () =>{
 
 const citiesAndCountry = [
   {city: "New York",      country: "United States"},
-  {city: "Tokio",         country: "Japan"},
-  {city: "Amsterdam",     country: "Netherlands"},
-  {city: "Madrid",        country: "Espain"},
-  {city: "Oslo",          country: "Norway"},
-  {city: "Mexico City",   country: "Mexico"},
-  {city: "Berlim",        country: "Germany"},
-  {city: "Johannesburg",  country: "South Africa"},
-  {city: "Vancouver",     country: "Canada"},
-  {city: "Lisbon",        country: "Portugal"},
-  {city: "Buenos Aires",  country: "Argentina"},
-  {city: "Lima",          country: "Peru"},
-  {city: "Santiago",      country: "Chile"},
+  // {city: "Tokio",         country: "Japan"},
+  // {city: "Amsterdam",     country: "Netherlands"},
+  // {city: "Madrid",        country: "Espain"},
+  // {city: "Oslo",          country: "Norway"},
+  // {city: "Mexico City",   country: "Mexico"},
+  // {city: "Berlim",        country: "Germany"},
+  // {city: "Johannesburg",  country: "South Africa"},
+  // {city: "Vancouver",     country: "Canada"},
+  // {city: "Lisbon",        country: "Portugal"},
+  // {city: "Buenos Aires",  country: "Argentina"},
+  // {city: "Lima",          country: "Peru"},
+  // {city: "Santiago",      country: "Chile"},
   {city: "São Paulo",     country: "Brazil"}
 ];
 
@@ -163,7 +163,7 @@ citiesAndCountry.forEach((seed) =>{
 
 // To multiple the times of hotels in the DB
 
-    // for(var i = 1; i < 20; i++){
+    // for(var i = 1; i < 2; i++){
     //   seedDB(i);
     // };
 
