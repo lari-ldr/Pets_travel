@@ -9,10 +9,15 @@ const express       = require("express"),
 module.exports = {
 
 // user page
-  userLink(req, res, next){
-    res.render("user");
+userProfile(req, res, next){
+  User.findById(req.params.id).populate("pets").exec((err, user)=>{
+    if(err){
+      return err;
+    } else{
+      res.render("user", {user: user});
+    }
+  });
   },
-
 // user infos
     user(req, res, next){
         User.findById(req.params.id, function(err, user){

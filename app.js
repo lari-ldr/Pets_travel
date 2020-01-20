@@ -14,7 +14,8 @@ const express       = require("express"),
       Comment       = require("./models/comment"),
       User          = require("./models/user"),
       Pet           = require("./models/pets"),
-      seedDB        = require ("./seeds")
+      seeds        = require("./seeds")
+
 
 
 // Requiring Routes
@@ -27,12 +28,12 @@ const hotelsRoutes       = require("./routes/hotels"),
 const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
 
 // CONNECT WITH LOCAL DB
-// mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
-//     console.log("Connect to the Local DB Mongo");
-// }).catch((err) =>{
-//     console.log("err: " + err);
-//     return err;
-// });
+mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
+    console.log("Connect to the Local DB Mongo");
+}).catch((err) =>{
+    console.log("err: " + err);
+    return err;
+});
 
 // CONNECT WITH ATLAS CLOUD
 // mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
@@ -51,8 +52,15 @@ app.use(flash());
 
 const Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
-// seed the database
-// seedDB();
+// ========================
+// SEEDS HOTELS & COMMENTS
+// ========================
+
+// HOTELS
+// seeds.seedDB();
+
+// COMMENTS
+// seeds.attachComments();
 
 // ===================
 // PASSPORT CONFIG.

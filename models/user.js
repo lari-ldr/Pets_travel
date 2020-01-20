@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
     password: String,
     firstName: String,
     lastName: String,
+    pets: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "pets"
+        }
+    ],
     birth: [
         month = String,
         day = String,

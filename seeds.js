@@ -2,6 +2,8 @@ const mongoose      = require("mongoose"),
       faker         = require("faker"),
       hotel         = require("./models/hotel"),
       Comment       = require("./models/comment"),
+      User          = require("./models/user"),
+      Pet          = require("./models/pets"),
       Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels")
 
 mongoose.connect("mongodb://localhost:27017/pets_travel", { useNewUrlParser: true });
@@ -116,55 +118,129 @@ randomPhotos = () =>{
     return finalRandom;
 };
 
+randomScore = () =>{
+  let score = [ 0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0,
+                  3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5,
+                  7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0
+                ];
+  let finalScore = score[Math.floor(Math.random()*score.length)];
+  return finalScore;
+};
+
 
 const citiesAndCountry = [
-  {city: "New York",      country: "United States"},
+  // {city: "New York",      country: "United States"},
   // {city: "Tokio",         country: "Japan"},
   // {city: "Amsterdam",     country: "Netherlands"},
   // {city: "Madrid",        country: "Espain"},
   // {city: "Oslo",          country: "Norway"},
   // {city: "Mexico City",   country: "Mexico"},
   // {city: "Berlim",        country: "Germany"},
-  // {city: "Johannesburg",  country: "South Africa"},
+  {city: "Johannesburg",  country: "South Africa"},
   // {city: "Vancouver",     country: "Canada"},
   // {city: "Lisbon",        country: "Portugal"},
   // {city: "Buenos Aires",  country: "Argentina"},
   // {city: "Lima",          country: "Peru"},
   // {city: "Santiago",      country: "Chile"},
-  {city: "São Paulo",     country: "Brazil"}
+  // {city: "São Paulo",     country: "Brazil"}
 ];
 
-seedDB = () =>{
+// ============
+// SEED HOTELS
+// ============
 
-      let stars = [1,2,3,4,5];
-      let randomStars = stars[Math.floor(Math.random() *stars.length)];
+seedDB =()=>{
 
-citiesAndCountry.forEach((seed) =>{
+    let stars = [1,2,3,4,5];
+    let randomStars = stars[Math.floor(Math.random() *stars.length)];
 
-        seed.title = faker.company.companyName(),
-        seed.street = faker.address.streetName();
-        seed.stars = randomStars;
-        seed.image = randomPhotos(); //faça uma função separada e chame aqui dentro!!!
-        seed.description = faker.lorem.paragraphs();
-        seed.price = faker.commerce.price(10, 200);
+// loop through the const citiesAndCountry and add the other informations
+  citiesAndCountry.forEach((seed) =>{
+      seed.title = faker.company.companyName(),
+      seed.street = faker.address.streetName();
+      seed.stars = randomStars;
+      seed.image = randomPhotos();
+      seed.description = faker.lorem.paragraphs();
+      seed.price = faker.commerce.price(10, 200);
+// create the item
+      Item.create(seed, (err, item) => {
+        if(err){
+          console.log(err);
+          return err;
+        } else{
+          console.log("Hotel added to the DB");      
+        }
+      });
+  });
+    // GO TO THE DATABASE TO CREATE THE INDEX FOR THE SEARCH
+  };
 
-        Item.create(seed, (err, item) => {
+// ==============
+// SEED COMMENTS
+// ==============
+
+attachComments = ()=>{
+  // find hotels
+  Item.find({}, (err, item)=>{
+    if(err){
+      console.log(err);
+      return err;
+    } else{
+      // loop through each hotel to select them
+      item.forEach((selectItem)=>{
+        console.log(selectItem);
+        // when select create a comment
+        Comment.create( {
+          title: faker.lorem.words(),
+          content: faker.lorem.sentence(),
+          score: randomScore(),
+          created: Date.now(),
+        }, (err, comment)=>{
           if(err){
             console.log(err);
             return err;
           } else{
-            console.log("hotel added");
+        // find a existing user
+        User.find({}, (err, user)=>{
+          if(err){
+            console.log(err);
+            return err;
+          } else{
+            console.log(user);
+            // loop throgh a existing user
+            user.forEach((searchUser)=>{
+              // catch the id and the username
+              comment.author.id = searchUser._id;
+              comment.author.username = searchUser.username;
+            })
+            // save comment
+            comment.save();
+            // connect hotel to the comments
+            selectItem.comments.push(comment); // tem q selecionar o item
+            // save the hotel
+            selectItem.save();
           }
-        });
-    });
-      // GO TO THE DATABASE TO CREATE THE INDEX FOR THE SEARCH
-    };
-
+        })
+      }
+    })
+      })
+    }
+  }) 
+};
 
 // To multiple the times of hotels in the DB
 
-    // for(var i = 1; i < 2; i++){
-    //   seedDB(i);
-    // };
+// for(var i = 1; i < 2; i++){
+//   seedDB(i);
+// }
 
-module.exports = seedDB;
+// To multiple the times of comments in the hotel
+
+// for(var i = 1; i < 3; i++){
+//   attachComments(i);
+// }
+
+module.exports = {
+  seedDB,
+  attachComments
+}

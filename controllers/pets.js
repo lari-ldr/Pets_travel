@@ -13,20 +13,32 @@ module.exports = {
 
 // add new pet POST
     newPetPost(req, res, next){
-        Pet.create(req.body.pet, function(err, pet){
+        User.findById(req.params.id, (err, user) =>{
             if(err){
                 console.log(err);
-                req.flash("error", "Something went wrong!");
+                return err;
             } else{
-                // add username and ID to pets
-                pet.author.id = req.user._id;
-                pet.author.username = req.user.username;
-                // save pets
-                pet.save();
-                req.flash("success", "Pet added!");
-                res.redirect("/user/"  + req.params.id + "/show_pet");
+                Pet.create(req.body.pet, function(err, pet){
+                    if(err){
+                        console.log(err);
+                        req.flash("error", "Something went wrong!");
+                    } else{
+                        // add username and ID to pets
+                        pet.author.id = req.user._id;
+                        pet.author.username = req.user.username;
+                        // save pets
+                        pet.save();
+                        // connect pet to the user
+                        user.pets.push(pet);
+                        // save the user
+                        user.save();
+                        req.flash("success", "Pet added!");
+                        res.redirect("/user/"  + req.params.id + "/show_pet");
+                    }
+                });
             }
-        });
+        })
+        
     },
 
 // show pets

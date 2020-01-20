@@ -1,25 +1,50 @@
 <% include ./partials/header %>
 <% include ./partials/bodyHeader %>
-
-<% include ./partials/header %>
-<% include ./partials/bodyHeader %>
-<main>
-    <section class="show-container">
+<main class="show-container">
+    <section class="review-background">
         <!-- FLASH MESSAGES -->
         <% include ./partials/flashMessages %>
 
-        <article class="show-wrapper">
-            <div class="show-card user-card">
-                <h1 class="show-card-title"> What you wanna do?</h1>
+        <article class="review-wrapper">
+            <h1 class="show-card-title"> <%= user.username %>'s Profile </h1>
+            <div class="review-card">
                     
                     <ul class="user-info">
-                        <li><a class="password-link" href="/user/<%= currentUser._id %>/info">User dados</a></li>
-                        <li><a class="password-link" href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></li>
-                        <li><a class="password-link" href="/user/<%= currentUser._id %>/show_pet">View your pets</a></li>
-                        <li><a class="password-link" href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></li>
+                        <li>Name: <%= user.firstName %> <%= user.lastName %> </li>
+                        <li>Username: <%= user.username %></li>
                     </ul>
 
+                    <ul class="birth-wrapper user-info">
+                        <li class="user-info-li">Birth: </li>
+                        <% var birth = user.birth; %>
+                        <% for(var i = 0; i <birth.length; i++) { %>
+                        <li class="birth"><%= birth[i] %></li>
+                        <% } %>
+                    </ul>
+                    </div>
         </article>
     </section>
+    <!-- PETS SECTION STARTS HERE -->
+    <section class="review-background">
+        <h2 class="review-section"> <%= user.username %>'s Pets: </h2>
+            <div class="review-wrapper">
+            <% user.pets.forEach(function(pets){ %> 
+            <article  class="review-card">
+            <p class="review-title">Nick: "<%= pets.petName %>" </p>
+            <div class="birth-wrapper">
+                <% var birth = pets.birth; %>
+
+                <% for(var i = 0; i <birth.length; i++) { %>
+                    <p class="pet-information birth"><%= birth[i] %></p>
+                   <% } %>
+                </div>
+                <p class="pet-information">It's a: <%= pets.dog %> <%= pets.cat %> </p>
+                <p class="pet-information">Breed: <%= pets.breed %> </p>
+                <p class="review-comment"> <%= pets.description %> </p>
+            </article >
+                <% }); %>
+          
+    </div>
+</section>
 </main>
 <% include ./partials/footer %>

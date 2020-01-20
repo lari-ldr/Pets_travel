@@ -5,7 +5,7 @@ const   express       = require("express"),
         Item          = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
 const {
-    userLink,
+    userProfile,
     user,
     userEditGet,
     userEditPut,
@@ -18,7 +18,7 @@ const {
 // ==========================
 
 // show user links
-router.get("/user/:id", middleware.isLoggedIn, userLink);
+router.get("/user/:id", userProfile);
 
 // show user data
 router.get("/user/:id/info", middleware.isLoggedIn, user);
