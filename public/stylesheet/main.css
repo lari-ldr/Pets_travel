@@ -521,6 +521,18 @@ button:hover{
     margin-bottom: auto;
 }
 
+.review-submitted:hover{
+    color: #2d3436;
+}
+
+.review-submitted a:hover{
+    color: #2d3436;;
+}
+
+.review-submitted a{
+    margin-left: 0.5rem;
+}
+
 .review-btn{
     display: flex;
     align-items: center;

@@ -41,7 +41,7 @@
                             <p class="review-score"><%= comment.score %></p>
                             <p class="review-title"> "<%= comment.title %>" </p>
                             <p class="review-comment"> <%- comment.content %></p>
-                            <p class="review-submitted"><a href="/user/<%= comment.author._id %>"></a>By: <%= comment.author.username %></p>
+                            <p class="review-submitted"><i class="fas fa-id-card-alt"></i><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></p>
                             <p class="review-date"><%= comment.created.toDateString() %></p>
 
                             <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
