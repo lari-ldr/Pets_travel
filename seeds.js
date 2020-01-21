@@ -129,20 +129,20 @@ randomScore = () =>{
 
 
 const citiesAndCountry = [
-  // {city: "New York",      country: "United States"},
-  // {city: "Tokio",         country: "Japan"},
-  // {city: "Amsterdam",     country: "Netherlands"},
-  // {city: "Madrid",        country: "Espain"},
-  // {city: "Oslo",          country: "Norway"},
-  // {city: "Mexico City",   country: "Mexico"},
-  // {city: "Berlim",        country: "Germany"},
+  {city: "New York",      country: "United States"},
+  {city: "Tokio",         country: "Japan"},
+  {city: "Amsterdam",     country: "Netherlands"},
+  {city: "Madrid",        country: "Espain"},
+  {city: "Oslo",          country: "Norway"},
+  {city: "Mexico City",   country: "Mexico"},
+  {city: "Berlim",        country: "Germany"},
   {city: "Johannesburg",  country: "South Africa"},
-  // {city: "Vancouver",     country: "Canada"},
-  // {city: "Lisbon",        country: "Portugal"},
-  // {city: "Buenos Aires",  country: "Argentina"},
-  // {city: "Lima",          country: "Peru"},
-  // {city: "Santiago",      country: "Chile"},
-  // {city: "São Paulo",     country: "Brazil"}
+  {city: "Vancouver",     country: "Canada"},
+  {city: "Lisbon",        country: "Portugal"},
+  {city: "Buenos Aires",  country: "Argentina"},
+  {city: "Lima",          country: "Peru"},
+  {city: "Santiago",      country: "Chile"},
+  {city: "São Paulo",     country: "Brazil"}
 ];
 
 // ============
@@ -165,7 +165,6 @@ seedDB =()=>{
 // create the item
       Item.create(seed, (err, item) => {
         if(err){
-          console.log(err);
           return err;
         } else{
           console.log("Hotel added to the DB");      
@@ -183,12 +182,10 @@ attachComments = ()=>{
   // find hotels
   Item.find({}, (err, item)=>{
     if(err){
-      console.log(err);
       return err;
     } else{
       // loop through each hotel to select them
       item.forEach((selectItem)=>{
-        console.log(selectItem);
         // when select create a comment
         Comment.create( {
           title: faker.lorem.words(),
@@ -197,16 +194,13 @@ attachComments = ()=>{
           created: Date.now(),
         }, (err, comment)=>{
           if(err){
-            console.log(err);
             return err;
           } else{
         // find a existing user
         User.find({}, (err, user)=>{
           if(err){
-            console.log(err);
             return err;
           } else{
-            console.log(user);
             // loop throgh a existing user
             user.forEach((searchUser)=>{
               // catch the id and the username
@@ -219,6 +213,7 @@ attachComments = ()=>{
             selectItem.comments.push(comment); // tem q selecionar o item
             // save the hotel
             selectItem.save();
+            console.log("comments attached to the hotels");
           }
         })
       }
@@ -228,9 +223,11 @@ attachComments = ()=>{
   }) 
 };
 
+
+
 // To multiple the times of hotels in the DB
 
-// for(var i = 1; i < 2; i++){
+// for(var i = 1; i < 20; i++){
 //   seedDB(i);
 // }
 
