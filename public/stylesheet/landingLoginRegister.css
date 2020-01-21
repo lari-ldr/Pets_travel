@@ -293,7 +293,7 @@ nav {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-right: 4rem;
+    margin-right: 10rem;
 }
 
 .dropdown-content {

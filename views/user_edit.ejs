@@ -18,7 +18,13 @@
                             
             <label for="username">Username:</label>
             <input disabled id="username" class="input disabled" type="text" name="user[username]" placeholder="username" value="<%= currentUser.username %>">
-                            
+
+            <label for="from">From:</label>
+            <input id="from" class="input" type="text" name="user[from]" placeholder="location" value="<%= currentUser.from %>">
+
+            <label for="aboutMe">About You:</label>
+            <input id="aboutMe" class="input form-text-description" type="text" maxlength="300"  name="user[aboutMe]" placeholder="About You" value="<%= currentUser.aboutMe %>">
+            
             <label>Birthday:</label>
                 <ul class="birth-wrapper-edit">
                     <% var birth = user.birth; %>

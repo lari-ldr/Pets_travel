@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
     password: String,
     firstName: String,
     lastName: String,
+    from: String,
+    aboutMe: String,
     pets: [
         {
             type: mongoose.Schema.Types.ObjectId,

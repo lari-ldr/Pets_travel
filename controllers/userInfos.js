@@ -18,6 +18,7 @@ userProfile(req, res, next){
     }
   });
   },
+  
 // user infos
     user(req, res, next){
         User.findById(req.params.id, function(err, user){

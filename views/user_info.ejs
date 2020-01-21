@@ -10,13 +10,13 @@
                 <h1 class="show-card-title"> <%= currentUser.username %>'s information: </h1>
                     
                     <ul class="user-info">
-                        <li>First Name: <%= user.firstName %> </li>
-                        <li>Last Name: <%= user.lastName %> </li>
-                        <li> Username: <%= user.username %> </li>
+                        <li><i class="far fa-id-card userIcon"></i> <%= user.firstName %> <%= user.lastName %> </li>
+                        <li><i class="fas fa-id-card-alt userIcon"></i> <%= user.username %> </li>
+                        <li><i class="fas fa-map-marked-alt userIcon"></i> <%= user.from %> </li>
                     </ul>
 
                     <ul class="birth-wrapper user-info">
-                        <li class="user-info-li">Birth: </li>
+                        <li class="user-info-li"><i class="fas fa-birthday-cake userIcon"></i> </li>
                         <% var birth = user.birth; %>
                         <% for(var i = 0; i <birth.length; i++) { %>
                         <li class="birth"><%= birth[i] %></li>
@@ -24,8 +24,10 @@
                     </ul>
 
                     <ul class="user-info user-space-bottom">
-                        <li>E-mail: <%= user.email %> </li>
-                        <li>Password: <a class="password-link" href="/forgot">Change me!</a></li>
+                        <li><i class="fas fa-envelope userIcon"></i> <%= user.email %> </li>
+                        <li><i class="fas fa-key userIcon"></i> <a class="password-link" href="/forgot">Change the password!</a></li>
+                        <li>About you: </li>
+                        <li> <%= user.aboutMe %> </li>
                     </ul>   
                     
                     <div class="review-btn">

@@ -781,10 +781,25 @@ button:hover{
 .user-info li{
     font-size: 1.2rem;
     margin: 0.25rem 0;
-    font-style: oblique;
     text-align: inherit;
     line-height: 1.3;
     padding-right: 0.2rem;
+}
+
+.profile-card{
+    width: 75%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    background-color: #fdcb6e;
+    margin-bottom: 2.5rem;
+    padding: 1.25rem;
+}
+
+.userIcon{
+    margin-right: 1rem;
+    font-size: 1.5rem;
 }
 
 /* ABOUT PAGE */

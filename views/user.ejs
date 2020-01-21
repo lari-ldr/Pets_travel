@@ -4,29 +4,35 @@
     <section class="review-background">
         <!-- FLASH MESSAGES -->
         <% include ./partials/flashMessages %>
-
+        <h1 class="show-card-title"> <%= user.username %>'s Profile </h1>
         <article class="review-wrapper">
-            <h1 class="show-card-title"> <%= user.username %>'s Profile </h1>
-            <div class="review-card">
+            <div class="profile-card">
                     
                     <ul class="user-info">
-                        <li>Name: <%= user.firstName %> <%= user.lastName %> </li>
-                        <li>Username: <%= user.username %></li>
+                        <li><i class="far fa-id-card userIcon"></i> <%= user.firstName %> <%= user.lastName %> </li>
+                        <li><i class="fas fa-id-card-alt userIcon"></i> <%= user.username %></li>
+                        <li><i class="fas fa-map-marked-alt userIcon"></i> <%= user.from %></li>
                     </ul>
 
                     <ul class="birth-wrapper user-info">
-                        <li class="user-info-li">Birth: </li>
+                        <li class="user-info-li"><i class="fas fa-birthday-cake userIcon"></i> </li>
                         <% var birth = user.birth; %>
                         <% for(var i = 0; i <birth.length; i++) { %>
                         <li class="birth"><%= birth[i] %></li>
                         <% } %>
+                    </ul>
+
+                    <ul class="user-info">
+                        <li>About Me: </li>
+                        <li> <%= user.aboutMe %></li>
                     </ul>
                     </div>
         </article>
     </section>
     <!-- PETS SECTION STARTS HERE -->
     <section class="review-background">
-        <h2 class="review-section"> <%= user.username %>'s Pets: </h2>
+        <h2 class="review-section"> <%= user.username %>'s Pets </h2>
+
             <div class="review-wrapper">
             <% user.pets.forEach(function(pets){ %> 
             <article  class="review-card">
@@ -43,7 +49,6 @@
                 <p class="review-comment"> <%= pets.description %> </p>
             </article >
                 <% }); %>
-          
     </div>
 </section>
 </main>

@@ -21,7 +21,7 @@ module.exports = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            birth: req.body.birth
+            birth: req.body.birth,
         });
         User.register(newUser, req.body.password, function(err, user){
             if(err){
