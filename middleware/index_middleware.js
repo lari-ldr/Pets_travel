@@ -24,6 +24,7 @@ middlewareObjs.checkCommentOwnership = function(req, res, next){
                 console.log(err);
                 req.flash("error", "comment no found");
                 res.redirect("back");
+                return err;
             } else{
                 if(foundComment.author.id.equals(req.user._id)){
                     next();

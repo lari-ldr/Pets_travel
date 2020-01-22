@@ -22,6 +22,7 @@ module.exports = {
                     if(err){
                         console.log(err);
                         req.flash("error", "Something went wrong!");
+                        return err;
                     } else{
                         // add username and ID to pets
                         pet.author.id = req.user._id;
@@ -47,6 +48,7 @@ module.exports = {
             if(err) {
               req.flash("error", "Something went wrong!");
               res.redirect("/");
+              return err;
             }
             Pet.find().where('author.id').equals(foundUser._id).exec(function(err, pets) {
               if(err) {
@@ -64,11 +66,13 @@ module.exports = {
             if(err) {
               req.flash("error", "Something went wrong!");
               res.redirect("/");
+              return err;
             }
             Pet.findById(req.params.pets_id, function(err, foundPets) {
                 if(err) {
                   req.flash("error", "Something went wrong!");
                   res.redirect("/");
+                  return err;
                 }
                 res.render("pet_edit", {user: foundUser, pets: foundPets});
               });
@@ -81,6 +85,7 @@ module.exports = {
             if(err){
                 console.log(err);
                 res.redirect("back");
+                return err;
             } else {
                 req.flash("success", "Pet changed!!!");
                 res.redirect("/user/"  + req.params.id + "/show_pet");
@@ -94,6 +99,7 @@ module.exports = {
             if(err){
                 console.log(err);
                 res.redirect("back");
+                return err;
             } else {
                 req.flash("success", "Pet deleted!");
                 res.redirect("/user/"  + req.params.id + "/show_pet");

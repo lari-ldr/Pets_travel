@@ -12,6 +12,7 @@ module.exports = {
         Item.findById(req.params.id, function(err, hotel){
             if(err){
                 console.log(err);
+                return err;
             } else {
                 res.render("comments_new", {hotel: hotel});
             }
@@ -24,12 +25,14 @@ module.exports = {
         Item.findById(req.params.id, function(err, hotel){
             if(err){
                 console.log(err);
+                return err;
             } else {
                 // create new comments
                 Comment.create(req.body.comment, function(err, comment){
                     if(err){
                         console.log(err);
                         req.flash("error", "Something is wrong!");
+                        return err;
                     } else{
                         // add username and ID to comments
                         comment.author.id = req.user._id;
@@ -71,6 +74,7 @@ module.exports = {
         Comment.updateOne({_id: req.params.comment_id }, { $set: req.body.comment }, function(err, updatedComments){
             if(err){
                 res.redirect("back");
+                return err;
             } else{
                 req.flash("success", "Comment changed!");
                 res.redirect("/search/" + req.params.id);
@@ -84,6 +88,7 @@ module.exports = {
             if(err){
                 console.log(err);
                 res.redirect("back");
+                return err;
             } else {
                 req.flash("success", "Comment deleted!");
                 res.redirect("/search/" + req.params.id );

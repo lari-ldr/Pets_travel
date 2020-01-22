@@ -25,12 +25,14 @@ module.exports = {
                     .exec(function(err, docs){
                         if(err){
                             console.log(err);
+                            return err;
                         }
                         Item.countDocuments({ $text: { $search: searchParams } })
                         .exec(function(err, count){
                             if(err){
                                 console.log(err);
                                 res.redirect("/");
+                                return err;
                             }
                             res.render("index", {
                                 results: true,
@@ -52,6 +54,7 @@ module.exports = {
                 req.flash("error", "hotel not found!");
                 console.log(err);
                 res.redirect("back");
+                return err;
             } else {
                 res.render("show", {hotel: showHotel});
             }
