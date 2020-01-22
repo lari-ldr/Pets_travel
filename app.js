@@ -1,6 +1,6 @@
 const express       = require("express"),
       app           = express(),
-      port          = 3000,
+      port          = process.env.PORT || 3000,
       bodyParser    = require("body-parser"),
       mongoose      = require("mongoose"),
       flash         = require("connect-flash"),
@@ -126,8 +126,8 @@ app.get("*", function(req, res){
 
 
 //Tell Express to listen for requests (start server)
-app.listen(port, function(){
-    console.log("Server Has Started on Port " + port);
+app.listen(process.env.PORT, function(){
+    console.log("Server Has Started on Port " + process.env.PORT);
 });
 
 //access: http://localhost:3000/
