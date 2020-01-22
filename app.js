@@ -28,20 +28,20 @@ const hotelsRoutes       = require("./routes/hotels"),
 const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
 
 // CONNECT WITH LOCAL DB
-// mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
-//     console.log("Connect to the Local DB Mongo");
-// }).catch((err) =>{
-//     console.log("err: " + err);
-//     return err;
-// });
-
-// CONNECT WITH ATLAS CLOUD
-mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
-    console.log("Connect to the DB Mongo_Atlas");
+mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
+    console.log("Connect to the Local DB Mongo");
 }).catch((err) =>{
     console.log("err: " + err);
     return err;
 });
+
+// CONNECT WITH ATLAS CLOUD
+// mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
+//     console.log("Connect to the DB Mongo_Atlas");
+// }).catch((err) =>{
+//     console.log("err: " + err);
+//     return err;
+// });
 
 mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended: true}));
