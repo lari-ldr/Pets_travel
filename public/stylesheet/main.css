@@ -1076,23 +1076,20 @@ button{
 }
 
 .nav-links{
-    /* position: absolute; */
     position: fixed;
     right: 0px;
-    height: 40vh;
     top: 8vh;
-    background-color: #2d3436;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     width: 30%;
     padding-top: 1.5rem;
-    /* margin-top: 6%; */
+    background-color: #2d3436;
+    border-radius: 2px;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     min-width: 140px;
-    z-index: 3;
 }
 
 .nav-links li{
