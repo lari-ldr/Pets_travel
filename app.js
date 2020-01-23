@@ -40,7 +40,7 @@ dotenv.config();
 
 console.log(process.env.DATABASEURLATLAS);
 // CONNECT WITH ATLAS CLOUD
-mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
+mongoose.connect("mongodb+srv://lari_ldr:Ki6tI1HZ8wpkxAbR@cluster0-lt2zk.mongodb.net/pets_travel?retryWrites=true&w=majority",{ useNewUrlParser: true }).then(() =>{
     console.log("Connect to the DB Mongo_Atlas");
 }).catch((err) =>{
     console.log("err: " + err);
