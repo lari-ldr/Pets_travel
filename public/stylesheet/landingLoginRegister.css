@@ -255,6 +255,7 @@ nav {
     display: flex;
     justify-content: end;
     align-items: center;
+    width: 100%;
 }
 
 .nav-text{
@@ -562,9 +563,17 @@ fill:#fdcb6e;
         display: block;
     }
     
-    
     .nav-active{
         transform: translateX(0%);
+    }
+
+    form{
+        padding: 0rem 0.5rem;
+    }
+
+    .formSearch {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
 @keyframes navLinkFade{

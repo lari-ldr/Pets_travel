@@ -60,10 +60,6 @@ button:hover{
 
 /* NAV BAR */
 
-.search-mobile-icon{
-    display: none;
-}
-
 .fa-paw{
     margin: 0 2px;
 }
@@ -73,8 +69,6 @@ button:hover{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* overflow: hidden;
-    min-height: 8vh; */
     background-color: #2d3436;
     position: fixed;
     top: 0;
@@ -1090,6 +1084,7 @@ button{
     justify-content: start;
     width: 30%;
     /* padding-top: 1.5rem; */
+    margin-top: 1rem;
     background-color: #2d3436;
     border-radius: 2px;
     transform: translateX(100%);
@@ -1099,6 +1094,10 @@ button{
 
 .nav-links p{
     opacity: 0;
+}
+
+.dropdown{
+    display: none;
 }
 
 .dropdown-content a{
@@ -1118,20 +1117,8 @@ button{
     transform: translateX(0%); /* tras o menu da direita pra esquerda*/
 }
 
-.search-mobile-icon{
-    display: unset;
-    cursor: pointer;
-    color:#fdcb6e;
-    font-size: 1.5rem;
-    margin-right: 1rem;
-}
-
-.formSearchClosed{
-    display: none;
-}
-
 .formSearch{
-    margin: 0rem 0.5rem;
+    margin-right: 2rem;
 }
 
 #make_search{

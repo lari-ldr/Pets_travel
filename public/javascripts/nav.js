@@ -1,17 +1,3 @@
-// SEARCH ICON FOR MOBILE VERSION
-const searchIcon = () =>{
-
-    const   searchIcon  = document.querySelector(".search-mobile-icon"),
-            searchBox   = document.querySelector(".formSearch");
-
-    searchIcon.addEventListener("click", () =>{
-        // when search icon is clicked appear search box
-        searchBox.classList.toggle("formSearchClosed");
-    });
-}
-
-searchIcon();
-
 // NAV SLIDE AND BURGUER FOR MOBILE VERSION
 const navSlide = ()=>{
     const   burger      = document.querySelector(".burger"),
