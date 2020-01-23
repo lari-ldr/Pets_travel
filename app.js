@@ -1,6 +1,6 @@
 const express       = require("express"),
       app           = express(),
-      port          = process.env.PORT || 3000,
+    //   port          = process.env.PORT || 3000,
       bodyParser    = require("body-parser"),
       mongoose      = require("mongoose"),
       flash         = require("connect-flash"),
@@ -25,7 +25,7 @@ const hotelsRoutes       = require("./routes/hotels"),
       userInfosRoutes    = require("./routes/userInfos"),
       petsRoutes         = require("./routes/pets")
 
-app.set("port", (process.env.PORT || 300));
+      
 dotenv.config();
 
 // const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
@@ -37,7 +37,6 @@ dotenv.config();
 //     console.log("err: " + err);
 //     return err;
 // });
-
 
 console.log(process.env.DATABASEURLATLAS);
 // CONNECT WITH ATLAS CLOUD
@@ -131,8 +130,8 @@ app.get("*", function(req, res){
 
 
 //Tell Express to listen for requests (start server)
-app.listen( app.get("port"), function(){
-    console.log("Server Has Started on Port ", app.get("port"));
+app.listen( process.env.PORT, function(){
+    console.log("Server Has Started on Port " + process.env.PORT);
 });
 
 //access: http://localhost:3000/
