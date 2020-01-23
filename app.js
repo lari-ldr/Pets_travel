@@ -25,6 +25,7 @@ const hotelsRoutes       = require("./routes/hotels"),
       userInfosRoutes    = require("./routes/userInfos"),
       petsRoutes         = require("./routes/pets")
 
+app.set("port", (process.env.PORT || 300));
 dotenv.config();
 
 // const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
@@ -37,6 +38,8 @@ dotenv.config();
 //     return err;
 // });
 
+
+console.log(process.env.DATABASEURLATLAS);
 // CONNECT WITH ATLAS CLOUD
 mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
     console.log("Connect to the DB Mongo_Atlas");
@@ -128,8 +131,8 @@ app.get("*", function(req, res){
 
 
 //Tell Express to listen for requests (start server)
-app.listen(process.env.PORT, function(){
-    console.log("Server Has Started on Port " + process.env.PORT);
+app.listen( app.get("port"), function(){
+    console.log("Server Has Started on Port ", app.get("port"));
 });
 
 //access: http://localhost:3000/
