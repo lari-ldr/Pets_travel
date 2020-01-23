@@ -1092,6 +1092,7 @@ button{
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     min-width: 140px;
+    z-index: 3;
 }
 
 .nav-links li{

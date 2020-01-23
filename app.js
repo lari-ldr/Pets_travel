@@ -1,6 +1,6 @@
 const express       = require("express"),
       app           = express(),
-    //   port          = process.env.PORT || 3000,
+    //   port          = 3000,
       bodyParser    = require("body-parser"),
       mongoose      = require("mongoose"),
       flash         = require("connect-flash"),
@@ -38,7 +38,7 @@ dotenv.config();
 //     return err;
 // });
 
-console.log(process.env.DATABASEURLATLAS);
+
 // CONNECT WITH ATLAS CLOUD
 mongoose.connect(process.env.DATABASEURLATLAS,{ useNewUrlParser: true }).then(() =>{
     console.log("Connect to the DB Mongo_Atlas");
