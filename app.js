@@ -7,7 +7,7 @@ const express       = require("express"),
       passport      = require("passport"),
       LocalStrategy = require("passport-local"),
       methodOverride = require("method-override"),
-      dotenv         = require('dotenv').config(),
+      dotenv         = require("dotenv"),
       fs            = require("fs"),
       faker         = require("faker"),
       hotel         = require("./models/hotel"),
@@ -25,7 +25,9 @@ const hotelsRoutes       = require("./routes/hotels"),
       userInfosRoutes    = require("./routes/userInfos"),
       petsRoutes         = require("./routes/pets")
 
-const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
+dotenv.config();
+
+// const urlDB = process.env.DATABASEURL || "mongodb://localhost:27017/pets_travel";
 
 // CONNECT WITH LOCAL DB
 // mongoose.connect(urlDB, { useNewUrlParser: true }).then(() =>{
