@@ -280,11 +280,6 @@ nav {
     transition: all 0.3s ease;
 }
 
-.nav-text{
-    color: #fdcb6e;
-    font-weight: bold;
-}
-
 .currentUser {
     float: left;
     padding-right: 10px;

@@ -69,17 +69,17 @@ button:hover{
 }
 
 .nav {
-    padding: 0.8rem 3rem;
+    padding: 0.8rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    overflow: hidden;
-    min-height: 8vh;
+    /* overflow: hidden;
+    min-height: 8vh; */
     background-color: #2d3436;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 /* FORM SEARCH */
@@ -129,6 +129,11 @@ button:hover{
     background-color: #fdcb6e;
     margin: 5px;
     transition: all 0.3s ease;
+}
+
+.currentUser {
+    float: left;
+    padding-right: 10px;
 }
 
 .dropdown {
@@ -1057,9 +1062,9 @@ footer{
 
 @media screen and (max-width:768px){
 
-body{
+/* body{
     overflow-x: hidden;
-}
+} */
 
 button{
     background-color: #15191a;
@@ -1071,9 +1076,9 @@ button{
     display: none;
 }
 
-.nav{
+/* .nav{
     padding: 0rem;
-}
+} */
 
 .nav-links{
     position: fixed;
@@ -1084,7 +1089,7 @@ button{
     align-items: center;
     justify-content: start;
     width: 30%;
-    padding-top: 1.5rem;
+    /* padding-top: 1.5rem; */
     background-color: #2d3436;
     border-radius: 2px;
     transform: translateX(100%);
@@ -1092,8 +1097,25 @@ button{
     min-width: 140px;
 }
 
-.nav-links li{
+.nav-links p{
     opacity: 0;
+}
+
+.dropdown-content a{
+    color: #fdcb6e;
+    font-weight: bold;
+}
+
+.currentUser{
+    padding: 16px;
+}
+
+.burger{
+    display: block;
+}
+
+.nav-active{
+    transform: translateX(0%); /* tras o menu da direita pra esquerda*/
 }
 
 .search-mobile-icon{
@@ -1114,23 +1136,6 @@ button{
 
 #make_search{
     height: 40px;
-}
-
-.dropdown-content a{
-    color: #fdcb6e;
-    font-weight: bold;
-}
-
-.currentUser{
-    padding: 40px 16px;
-}
-
-.burger{
-    display: block;
-}
-
-.nav-active{
-    transform: translateX(0%); /* tras o menu da direita pra esquerda*/
 }
 
 /* MAIN RESULTS */
