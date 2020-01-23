@@ -18,20 +18,20 @@
             <!-- CURRENT USER DROWDOWN AND BURGUER -->
 
                 <% if(!currentUser){ %>
-            <ul class="nav-links">   
-                <li class="currentUser userResized"><a class="nav-text" href="/login">Login</a></li>
-               <li class="currentUser userResized"><a class="nav-text" href="/register">Sign Up</a></li>
-            </ul>
+            <div class="nav-links">   
+                <p class="currentUser userResized"><a class="nav-text" href="/login">Login</a></p>
+               <p class="currentUser userResized"><a class="nav-text" href="/register">Sign Up</a></p>
+            </div>
                <% } else { %>
                 <div class="dropdown dropdownHoverEffect">
                     <p class="UserNameNot"><a class="nav-text" href="/user/<%= currentUser._id %>"> <%= currentUser.username %> </a></p>
-                    <ul class="dropdown-content">
-                        <li><a href="/user/<%= currentUser._id %>/info">User Informations</a></li>
-                        <li><a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></li>
-                        <li><a href="/user/<%= currentUser._id %>/show_pet">View Your Pets</a></li>
-                        <li><a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></li>
-                        <li><a href="/logout">Logout</a></p>
-                    </ul>
+                    <div class="dropdown-content">
+                        <p><a href="/user/<%= currentUser._id %>/info">User Informations</a></p>
+                        <p><a href="/user/<%= currentUser._id %>/add_pet">Add New Pet</a></p>
+                        <p><a href="/user/<%= currentUser._id %>/show_pet">View Your Pets</a></p>
+                        <p><a href="/user/<%= currentUser._id %>/reviews">Your Reviews</a></p>
+                        <p><a href="/logout">Logout</a></p>
+                    </div>
                 </div>
                <% }; %>
 

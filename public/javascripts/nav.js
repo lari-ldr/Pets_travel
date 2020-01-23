@@ -16,7 +16,7 @@ searchIcon();
 const navSlide = ()=>{
     const   burger      = document.querySelector(".burger"),
             nav         = document.querySelector(".nav-links"),
-            navLinks    = document.querySelectorAll(".nav-links li");
+            navLinks    = document.querySelectorAll(".nav-links p");
  
     burger.addEventListener("click", ()=>{ 
         // Toggle nav
