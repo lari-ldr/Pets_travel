@@ -9,10 +9,12 @@ is about to come.
 In the future will be add functions like: search filter, booking history, monitoring not the pet in real time,
 login, register with facebool, google and twitter.
 
-Pets_travel was created - using the MEN Stack (Mongodb, Express and NodeJs) - to show the habilities learned
-during The Web Developer Bootcamp course by Colt Steele (Udemy). All the informations are fake, make it with
+Pets_travel was created - using the MEN Stack (Mongodb, Express and NodeJs) - to show the abilities learned
+during The Web Developer Bootcamp course by Colt Steele (Udemy). All the information are fake, made it with
 faker_js. The images in the hotels, landing, login and register pages are from Unsplash and all photos have
 been credited in the about page.
+
+Link: https://petstravel.herokuapp.com/
 
 ============================================
 
@@ -31,4 +33,6 @@ Pets_Travel foi criado - usando o stack MEN (Mongodb, Express e NodeJs) - para m
 durante o curso básico The Web Developer Bootcamp criado por Colt Steele (Udemy). Todas as informações encontradas
 no site são falsas, geradas com o faker_js. As imagens nas páginas dos hoteis, landing, login e register são do site
 Unsplash e todas as fotos foram devidamente creditadas, os links para os perfis de cada um dos fotógrafos encontram-se
-na pagina About.
+na pagina about.
+
+Link: https://petstravel.herokuapp.com/
