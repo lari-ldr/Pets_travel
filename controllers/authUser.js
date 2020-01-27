@@ -90,13 +90,13 @@ module.exports = {
                     
                     service: "Gmail",
                     auth: {
-                        user: "petstravel.infos@gmail.com",
+                        user: process.env.GMAIL,
                         pass: process.env.GMAIL_PASS
                     }
                 });
                 let mailOptions = {
                     to: user.email,
-                    from: "petstravel.infos@gmail.com",
+                    from: process.env.GMAIL,
                     subject: "Pets_travel Password Reset",
                     text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -158,13 +158,13 @@ module.exports = {
     
                     service: "Gmail",
                     auth: {
-                        user: "petstravel.infos@gmail.com",
+                        user: process.env.GMAIL,
                         pass: process.env.GMAIL_PASS
                     }
                 });
                 let mailOptions = {
                     to: user.email,
-                    from: "petstravel.infos@gmail.com",
+                    from: process.env.GMAIL,
                     subject: 'Your password has been changed',
                     text: 'Hello,\n\n' + user.username +
                         'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
