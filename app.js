@@ -72,7 +72,7 @@ const Item = hotel.Mongoose.model("hotels", hotel.hotelSchema, "hotels");
 
 // setup express-session
 app.use(require("express-session")({
-    secret: process.env.EXPRESSSESSIONSECRET || "infections of a different kind of human",
+    secret: process.env.EXPRESSSESSIONSECRET,
     resave: false,
     saveUninitialized: false,
 }));
